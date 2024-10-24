@@ -1,4 +1,7 @@
-on: push
+on: 
+  push:
+    branches:
+      - main
 name: 🚀 Deploy website on push
 jobs:
   web-deploy:
@@ -24,4 +27,7 @@ jobs:
       with:
         server: ${{secrets.FTP_SERVER}}
         username: ${{secrets.FTP_USER}}
-        password: ${{ secrets.FTP_PASSWORD }} 
+        password: ${{ secrets.FTP_PASSWORD }}
+        dangerous-clean-slate: true
+        local-dir: ./build/
+        server-dir: public_html/projeto_uptrips/uptrips_api/
