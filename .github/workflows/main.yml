@@ -30,4 +30,4 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         dangerous-clean-slate: true
         local-dir: ./app/build/
-        server-dir: public_html/projeto_uptrips/uptrips_api/
+        server-dir: ../../public_html/projeto_uptrips/uptrips_frontend/
