@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import api from './Api.js'; 
 import './App.css';
 
 const App = () => {
@@ -22,19 +22,17 @@ const App = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      await axios.post("http://localhost:8001/api/users", formData)
-
-      .then(response =>{
+    try{
+     const response = await api.post("/users", formData);
         console.log(response.data);
-      })
-      setSuccessMessage("Cadastro realizado com sucesso!");
-      setErrorMessage(""); 
-    } catch (error) {
+        setSuccessMessage("Cadastro realizado com sucesso!");
+        setErrorMessage(""); 
+      
+    }catch (error) {
       console.error('Erro ao consumir a API', error);
       setErrorMessage("Erro ao realizar o cadastro. Tente novamente.");
       setSuccessMessage("");
-    }
+    };
   };
 
   return (

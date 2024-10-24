@@ -17,6 +17,8 @@ jobs:
         node-version: '18.20.4'
       
     - name: 🔨 Build Project
+      env:
+        REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
       run: |
         cd app
         npm install
