@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import api from './Api.js'; 
 import './App.css';
 
-const EditPackage = ({ packageId, onPackageUpdated }) => {
+const EditarPacote = ({ packageId, onPackageUpdated }) => {
   const [formData, setFormData] = useState({
     description: "",
     price: "",
@@ -111,4 +111,4 @@ const EditPackage = ({ packageId, onPackageUpdated }) => {
   );
 };
 
-export default EditPackage;
+export default EditarPacote;
