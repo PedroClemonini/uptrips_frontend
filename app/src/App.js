@@ -7,7 +7,6 @@ import axios from "axios";
 const App = () => {
   useEffect(() => {
     axios.defaults.withCredentials = true;
-
     axios
       .get("https://uptrips.api.simplifica.gru.br/sanctum/csrf-cookie")
       .then((response) => {
