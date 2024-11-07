@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
 import "./App.css";
-import EditPackage from "./EditarPacote.js";
 import Login from "./login.js";
-import InserirPacote from "./InserirPacote.js";
 import axios from "axios";
 const App = () => {
   useEffect(() => {
