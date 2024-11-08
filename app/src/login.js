@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import api from './Api.js'; 
-import './App.css';
-
+import api from "./Api.js";
+import "./App.css";
+import Cookies from "js-cookie";
 const Login = () => {
- const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
+    password_confirmation:"",
   });
 
   const [errorMessage, setErrorMessage] = useState("");
@@ -22,18 +23,25 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try{
-  
-     const response = await api.post("/users", formData);
-        console.log(response.data);
-        setSuccessMessage("Cadastro realizado com sucesso!");
-        setErrorMessage(""); 
-      
-    }catch (error) {
-      console.error('Erro ao consumir a API', error);
-      setErrorMessage("Erro ao realizar o cadastro. Tente novamente[<8;53;10m.");
+    try {
+      await api.get("sanctum/csrf-cookie", { withCredentials: true });
+      const response = await api.post("/register", formData, {
+        headers: {
+          "X-XSRF-TOKEN": Cookies.get("XSFR-TOKEN"),
+        },
+        withCredentials: true,
+        withXSRFToken: true,
+      });
+      console.log(response.data);
+      setSuccessMessage("Cadastro realizado com sucesso!");
+      setErrorMessage("");
+    } catch (error) {
+      console.error("Erro ao consumir a API", error);
+      setErrorMessage(
+        "Erro ao realizar o cadastro. Tente novamente[<8;53;10m.",
+      );
       setSuccessMessage("");
-    };
+    }
   };
 
   return (
@@ -70,7 +78,18 @@ const Login = () => {
             onChange={handleChange}
             required
           />
-          <button type="submit" className="cadastro-button">Cadastrar</button>
+          <input
+            type="password"
+            name="password_confirmation"
+            className="cadastro-input"
+            placeholder="Confirme sua Senha"
+            value={formData.password_confirmation}
+            onChange={handleChange}
+            required
+          />
+          <button type="submit" className="cadastro-button">
+            Cadastrar
+          </button>
         </form>
       </div>
     </div>
