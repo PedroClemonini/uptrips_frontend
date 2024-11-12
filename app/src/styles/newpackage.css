@@ -96,3 +96,11 @@ form input[type=submit]:hover, form input[type=reset]:hover, form button:hover{
     cursor: pointer;
     transform: scale(1.02);
 }
+
+.blurred {
+  filter: blur(5px);
+}
+
+.new_package_section {
+  display: flex;
+}
