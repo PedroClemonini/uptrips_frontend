@@ -1,0 +1,55 @@
+.bg {
+    align-items: center;
+    border: solid 5px var(--c1);
+    border-radius: 15px;
+    box-shadow: 0px 3px 9px rgba(0, 0, 0, 0.4);
+    display: flex;
+    height: 200px;
+    justify-content: center;
+    overflow: hidden;
+    transition: all 150ms ease-in;
+    width: 150px;
+}
+
+.info {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.title {
+    color: var(--c5);
+    font-size: 20px;
+    font-weight: 500;
+    margin: auto 0;
+}
+
+.price {
+    color: green;
+    font-size: 20px;
+    font-weight: 900;
+    margin: auto 0;
+}
+
+.package_new, .package_old {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    text-align: center;
+    transition: all 250ms ease-in-out;
+}
+
+.new {
+    color: var(--c5);
+    font-size: 20px;
+    font-weight: 600;
+    margin: auto 0;
+}
+
+.bg:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+} 

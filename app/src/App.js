@@ -1,79 +1,56 @@
-import React, { useState } from "react";
-import api from './Api.js'; 
-import './App.css';
+import React, {useState} from "react";
+// import api from './Api.js'; 
+import Header from './components/header.js';
+import Package from './components/package.js';
+import New_package from './components/newPackage.js';
 
-const App = () => {
- const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
-  });
 
-  const [errorMessage, setErrorMessage] = useState("");
-  const [successMessage, setSuccessMessage] = useState("");
+function App(){
+  const [showModal, setShowModal] = useState(false);
+  var cancel;
+  // console.log(cancel);
+  
+  // Função para abrir o modal
+  const openModal = () => {
+    document.querySelector(".new_package_section").style.display = "flex";
+    document.querySelector(".package_section").style.filter = "blur(5px)";
+    document.querySelector(".header").style.filter = "blur(5px)";
+    // cancel = document.querySelector("button.cancel");
+    setShowModal(true);
+  };
+  
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+  // Função para fechar o modal
+  const closeModal = () => {
+    document.querySelector(".new_package_section").style.display = "none";
+    document.querySelector(".package_section").style.filter = "blur(0px)";
+    document.querySelector(".header").style.filter = "blur(0px)";
+    setShowModal(false);
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try{
-     const response = await api.post("/users", formData);
-        console.log(response.data);
-        setSuccessMessage("Cadastro realizado com sucesso!");
-        setErrorMessage(""); 
-      
-    }catch (error) {
-      console.error('Erro ao consumir a API', error);
-      setErrorMessage("Erro ao realizar o cadastro. Tente novamente.");
-      setSuccessMessage("");
-    };
-  };
+  return(
+    <div className="App">
+      <Header user="admin"></Header>
+      <section class="package_section">
+        <Package onClick={openModal}></Package>
+        <Package image="#" title="Ilha Bela" price="R$500,00"></Package>
+        <Package image="#" title="Guarulhos" price="R$100,00"></Package>
+        <Package image="#" title="Rio de Janeiro" price="R$200,00"></Package>
+        <Package image="#" title="Praias" price="R$900,00"></Package>
+        <Package image="#" title="Holambra" price="R$400,00"></Package>
+        <Package image="#" title="Campos do Jordão" price="R$1200,00"></Package>
+        <Package image="#" title="Natal" price="R$300,00"></Package>
+        <Package image="#" title="São Paulo" price="R$200,00"></Package>
 
-  return (
-    <div className="cadastro-container">
-      <div className="cadastro-form">
-        <h1 className="cadastro-title">Cadastro</h1>
-        {errorMessage && <p className="error-message">{errorMessage}</p>}
-        {successMessage && <p className="success-message">{successMessage}</p>}
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="name"
-            className="cadastro-input"
-            placeholder="Nome"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="email"
-            name="email"
-            className="cadastro-input"
-            placeholder="Email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="password"
-            name="password"
-            className="cadastro-input"
-            placeholder="Senha"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
-          <button type="submit" className="cadastro-button">Cadastrar</button>
-        </form>
-      </div>
+      </section>
+      <section class="new_package_section">
+        {showModal && (
+          <New_package></New_package>
+        )}
+      </section>
     </div>
   );
-};
+}
 
 export default App;
+

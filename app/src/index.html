@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"      rel="stylesheet">
+
+    <link rel="stylesheet" href="./styles/landing.css">
+    <script src="js/index.js" defer></script>
+
+    <title>Home | Up Trips</title>
+</head>
+<body>
+    <header>
+        <h1>UP Trips</h1>
+
+        <div>
+            <a href="#">Home</a>
+            <a href="#">Destinos</a>
+            <a href="#books">Como agendar?</a>
+            <a href="#feedbacks">Feedbacks</a>
+            <a href="#">Login</a>
+        </div>
+    </header>
+
+    <section class="main">
+        <h3>
+            VIAJAR É DAR UM UP EM SUA VIDA!
+        </h3>
+
+        <h1>
+            DESCUBRA DESTINOS INCRÍVEIS COM OFERTAS EXCLUSIVAS!
+        </h1>
+
+        <h2>
+            PLANEJE SUA PRÓXIMA VIAGEM COM DESCONTOS IMPERDÍVEIS E VIVA EXPERIÊNCIAS INESQUECÍVEIS! 🌍✈️
+        </h2>
+        
+        <a href="#">
+            RESERVAR AGORA!
+        </a>
+    </section>
+
+    <section class="trips">
+        <div class="text">
+            <h2>
+                TOP DE VENDAS!
+            </h2>
+            <h1>
+                NOSSAS VIAGENS MAIS VENDIDAS
+            </h1>
+        </div>
+
+        <div class="cards">
+            <a href="" class="card">
+                <div class="picture"> <img src="images/trips/angra-dos-reis.jpg" alt="Angra dos Reis"> </div>
+                <div class="info">
+                    <span class="destination">Angra dos Reis</span>
+                    <span class="price">R$555,00</span>
+                </div>
+                <span class="time">2 dias</span>
+            </a>
+
+            <a href="" class="card">
+                <div class="picture"> <img src="images/trips/aparecida.jpg" alt="Aparecida do Norte"> </div>
+                <div class="info">
+                    <span class="destination">Aparecida do Norte</span>
+                    <span class="price">R$100,00</span>
+                </div>
+                <span class="time">Bate e volta</span>
+            </a>
+
+            <a href="" class="card">
+                <div class="picture"> <img src="images/trips/triplice.jpg" alt="Tríplice Fronteira"> </div>
+                <div class="info">
+                    <span class="destination">Tríplice Fronteira</span>
+                    <span class="price">R$869,00</span>
+                </div>
+                <span class="time">4 dias</span>
+            </a>
+        </div>
+    </section>
+
+    <section class="books" id="books">
+        <h1>AGENDE SUA VIAGEM EM 3 PASSOS!</h1>
+
+        <div class="tips">
+            <div class="tip">
+                <div class="img"><img src="images/icons/location.png" alt="Location"></div>
+                <div class="text">
+                    <h1>Escolha o destino</h1>
+                    <p>Explore destinos incríveis e encontre sua próxima aventura!</p>
+                </div>
+            </div>
+
+            <div class="tip">
+                <div class="img"><img src="images/icons/payment.png" alt="Payment"></div>
+                <div class="text">
+                    <h1>Fazer o pagamento</h1>
+                    <p>Pagamento seguro e fácil. Sua viagem reservada em poucos minutos.</p>
+                </div>
+            </div>
+
+            <div class="tip">
+                <div class="img"><img src="images/icons/happiness.png" alt="Happines"></div>
+                <div class="text">
+                    <h1>Embarcar e aproveitar!</h1>
+                    <p>Após a confirmação, você receberá todos os detalhes necessários. Agora é só arrumar as malas e curtir!</p>
+                </div>
+            </div>
+        </div>
+
+        <a href="#">TÔ DENTRO!</a>
+    </section>
+
+    <section class="feedbacks" id="feedbacks">
+        <h3>FEEDBACKS</h3>
+        <h1>VEJA O QUE DIZEM SOBRE NÓS!</h1>
+
+        <div class="select">
+            <img id="previous" src="images/icons/arrow_icon.png" alt="Previous">
+            <div class="fb">
+                <p>
+                    “A viagem foi maravilhosa, a Bia é sensacional 👏 👏 👏 💓, espero poder viajar mais com a Up Trips!"
+                </p>
+                <span class="name">Gleidson B.</span>
+                <span class="trip">Cabo Frio/Arraial do Cabo</span>
+            </div>
+            <img id="next" src="images/icons/arrow_icon.png" alt="Next">
+        </div>
+
+        <a href="#">QUERO VIAJAR TAMBÉM!</a>
+    </section>
+
+    <section class="contact">
+        <h3>CONTATO</h3>
+        <p>
+            Informe seu e-mail ou whatsapp e receba descontos exclusívos e notícias sobre lançamentos de novas viagens!
+        </p>
+
+        <form action="#" method="GET">
+            <div class="options">
+                <label>
+                    <input type="radio" name="option" value="mail" required checked>
+                    <img src="images/icons/email_icon.png" alt="Email">
+                </label>
+                <label>
+                    <input type="radio" name="option" value="phone">
+                    <img src="images/icons/wpp2_icon.png" alt="Phone">
+                </label>
+            </div>
+            <input type="email" placeholder="#">
+            <input type="submit" value="ENVIAR">
+        </form>
+    </section>
+
+    <footer>
+        <div class="content">
+            <div class="main">
+                <h1>UP TRIPS</h1>
+                <p>Agende sua viagem em minutos. Controle total sobre seus destinos.</p>
+            </div>
+            <div class="more">
+                <div class="item">
+                    <h3>Compania</h3>
+                    <a href="">Sobre</a>
+                </div>
+                <div class="item">
+                    <h3>Contato</h3>
+                    <a href="">WhatsApp</a>
+                    <a href="">E-mail</a>
+                </div>
+                <div class="item">
+                    <h3>Destinos</h3>
+                    <a href="">Passagens</a>
+                </div>
+                <div class="item">
+                    <h3>Redes Sociais</h3>
+                    <a href=""><img src="images/icons/fb_icon.png" alt="#"></a>
+                    <a href="https://www.facebook.com/voudeuptrips/"><img src="images/icons/ig_icon.png" alt="#"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
