@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import api from './Api.js'; 
 import './App.css';
 
-const App = () => {
- const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
+const InserirPacote = () => {
+  const [formData, setFormData] = useState({
+    description: "",
+    price: "",
+    destination: "",
   });
 
   const [errorMessage, setErrorMessage] = useState("");
@@ -22,15 +22,14 @@ const App = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try{
-     const response = await api.post("/users", formData);
-        console.log(response.data);
-        setSuccessMessage("Cadastro realizado com sucesso!");
-        setErrorMessage(""); 
-      
-    }catch (error) {
+    try {
+      const response = await api.post("/packages", formData);
+      console.log(response.data);
+      setSuccessMessage("Pacote inserido com sucesso!");
+      setErrorMessage(""); 
+    } catch (error) {
       console.error('Erro ao consumir a API', error);
-      setErrorMessage("Erro ao realizar o cadastro. Tente novamente.");
+      setErrorMessage("Erro ao inserir o pacote. Tente novamente.");
       setSuccessMessage("");
     };
   };
@@ -38,43 +37,42 @@ const App = () => {
   return (
     <div className="cadastro-container">
       <div className="cadastro-form">
-        <h1 className="cadastro-title">Cadastro</h1>
+        <h1 className="cadastro-title">Inserção de Pacotes</h1>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
         {successMessage && <p className="success-message">{successMessage}</p>}
         <form onSubmit={handleSubmit}>
           <input
             type="text"
-            name="name"
+            name="description"
             className="cadastro-input"
-            placeholder="Nome"
-            value={formData.name}
+            placeholder="Descrição"
+            value={formData.description}
             onChange={handleChange}
             required
           />
           <input
-            type="email"
-            name="email"
+            type="number"
+            name="price"
             className="cadastro-input"
-            placeholder="Email"
-            value={formData.email}
+            placeholder="Preço"
+            value={formData.price}
             onChange={handleChange}
             required
           />
           <input
-            type="password"
-            name="password"
+            type="text"
+            name="destination"
             className="cadastro-input"
-            placeholder="Senha"
-            value={formData.password}
+            placeholder="Destino"
+            value={formData.destination}
             onChange={handleChange}
             required
           />
-          <button type="submit" className="cadastro-button">Cadastrar</button>
+          <button type="submit" className="cadastro-button">Inserir Pacote</button>
         </form>
       </div>
     </div>
   );
 };
 
-export default App;
-
+export default InserirPacote;
