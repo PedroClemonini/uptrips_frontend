@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Header from "./header.js";
 import Package from "./package.js";
 import NewPackage from "./newPackage.js";
-
+import '../styles/index.css';
 const ManagerView = () => {
   const [showModal, setShowModal] = useState(false);
 
