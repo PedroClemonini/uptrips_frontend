@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import api from "./Api.js";
 import "./App.css";
 import Cookies from "js-cookie";
-import Logout from "./components/logout.js";
-import GetUser from "./components/get.js";
-const Login = () => {
+
+const Register = () => {
   const [formData, setFormData] = useState({
+    name: "",
     email: "",
     password: "",
+    password_confirmation:"",
   });
 
   const [errorMessage, setErrorMessage] = useState("");
@@ -25,14 +26,14 @@ const Login = () => {
     e.preventDefault();
     try {
       await api.get("sanctum/csrf-cookie", { withCredentials: true });
-      const response = await api.post("/login", formData, {
+      const response = await api.post("/register", formData, {
         headers: {
           "X-XSRF-TOKEN": Cookies.get("XSRF-TOKEN"),
         },
         withCredentials: true,
       });
       console.log(response.data);
-      setSuccessMessage("Login realizado com sucesso!");
+      setSuccessMessage("Cadastro realizado com sucesso!");
       setErrorMessage("");
     } catch (error) {
       console.error("Erro ao consumir a API", error);
@@ -45,14 +46,20 @@ const Login = () => {
 
   return (
     <div className="cadastro-container">
-      <Logout />
-      <GetUser />
       <div className="cadastro-form">
         <h1 className="cadastro-title">Cadastro</h1>
-
         {errorMessage && <p className="error-message">{errorMessage}</p>}
         {successMessage && <p className="success-message">{successMessage}</p>}
         <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="name"
+            className="cadastro-input"
+            placeholder="Nome"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
           <input
             type="email"
             name="email"
@@ -71,6 +78,15 @@ const Login = () => {
             onChange={handleChange}
             required
           />
+          <input
+            type="password"
+            name="password_confirmation"
+            className="cadastro-input"
+            placeholder="Confirme sua Senha"
+            value={formData.password_confirmation}
+            onChange={handleChange}
+            required
+          />
           <button type="submit" className="cadastro-button">
             Cadastrar
           </button>
@@ -79,4 +95,4 @@ const Login = () => {
     </div>
   );
 };
-export default Login;
+export default Register;
