@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import api from "./Api.js";
-import "./App.css";
+import "./register.css";
 import Cookies from "js-cookie";
 
 const Register = () => {

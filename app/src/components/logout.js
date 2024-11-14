@@ -1,11 +1,13 @@
 import React from 'react';
 import api from '../Api';
-import Cookies from 'js-cookie'; 
-export default function Logout(){
-   const handleSubmit = async (e) => {
+import Cookies from 'js-cookie';
+import '../styles/logout.css'; 
+
+export default function Logout() {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await api.post("/logout",null,{
+      const response = await api.post("/logout", null, {
         headers: {
           "X-XSRF-TOKEN": Cookies.get("XSRF-TOKEN"),
         },
@@ -18,8 +20,10 @@ export default function Logout(){
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <button type="submit">Logout</button>
-    </form>
+    <div className="logout-container">
+      <form onSubmit={handleSubmit}>
+        <button type="submit" className="logout-button">Logout</button>
+      </form>
+    </div>
   );
 }

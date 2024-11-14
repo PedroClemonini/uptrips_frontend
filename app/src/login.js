@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import api from "./Api.js";
-import "./App.css";
+import "./login.css";
 import Cookies from "js-cookie";
 import Logout from "./components/logout.js";
 import GetUser from "./components/get.js";
