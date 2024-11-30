@@ -1,7 +1,7 @@
 
-import Input from "./Input.js";
-import Title from './Title.js';
-import Button from "./Button.js";
+import Input from "./input.js";
+import Title from './title.js';
+import Button from "./button.js";
 
 import '../styles/components/newpackage_user.css';
 
