@@ -62,7 +62,7 @@ function Register() {
 
     try {
       await api.get("sanctum/csrf-cookie", { withCredentials: true });
-      const response = await api.post("/register", formData, {
+      await api.post("/register", formData, {
         headers: {
           "X-XSRF-TOKEN": Cookies.get("XSRF-TOKEN"),
         },
