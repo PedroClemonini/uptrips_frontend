@@ -10,7 +10,7 @@ function UserCard({name, number, id, onClick}){
     if({name}.name !== undefined){
         return(
             <div className="UserCard">
-                <a href="#" class="user_old">
+                <a href="/" class="user_old">
                     <div class="background">
                         <img src={user} alt="Usuário" />
                     </div>

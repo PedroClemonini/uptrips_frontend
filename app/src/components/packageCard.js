@@ -10,7 +10,7 @@ function PackageCard({id, title, price, onClick}){
     if({title}.title !== undefined){
         return(
             <div className="PackageCard">
-                <a href="#" className="package_old">
+                <a href="/" className="package_old">
                     <div class="background">
                         <img src={bus} alt="Viagem" />
                     </div>

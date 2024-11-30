@@ -111,7 +111,7 @@ function Login() {
           </form>
 
           <Link
-              href="#"
+              href="/"
               classe="forgot"
           >
               Esqueceu sua senha?
