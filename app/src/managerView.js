@@ -1,5 +1,5 @@
 
-import Header from "./components/Header.js";
+import Header from "./components/header.js";
 import Card from './components/Card.js';
 
 import './styles/pages/index.css';
