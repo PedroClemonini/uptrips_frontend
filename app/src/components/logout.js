@@ -1,7 +1,8 @@
 import React from 'react';
 import api from '../Api';
 import Cookies from 'js-cookie'; 
-export default function Logout(){
+
+function Logout(){
    const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -23,3 +24,5 @@ export default function Logout(){
     </form>
   );
 }
+
+export default Logout;
