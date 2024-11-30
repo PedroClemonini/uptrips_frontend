@@ -1,14 +1,26 @@
 
-function Link({href, target, children}){
+function Link({classe, href, target, children}){
     
     if({target}.target === "_blank"){
         console.log({target}.target);
-        return(
-            <a href={href} target="_blank" rel="noreferrer" className="link">{children}</a>
+        return (
+            <a 
+                className={`link ${classe}`}
+                target="_blank"
+                href={href}
+            >
+                {children}
+            </a>
         );
     } else {
         return(
-            <a href={href} className="link">{children}</a>
+            <a 
+                className={`link ${classe}`}
+                href={href}
+                target={target}
+            >
+                {children}
+            </a>
         );
     }
 }

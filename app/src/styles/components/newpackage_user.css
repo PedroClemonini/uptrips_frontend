@@ -9,7 +9,7 @@
     width: 100%;
 }
 
-.menu_package {
+.menu_package, .menu_user {
     align-self: center;
     align-items: center;
     background-color: white;
@@ -98,7 +98,7 @@ form input[type=submit]:hover, form input[type=reset]:hover, form button:hover{
 }
 
 .blurred {
-  filter: blur(5px);
+  filter: blur(2px);
 }
 
 .new_package_section {
