@@ -1,13 +1,12 @@
 
 import React, { useState } from "react";
 
-import Header from "./components/Header.js";
-import Package from "./components/PackageCard.js";
-import NewPackage from "./components/NewPackage.js";
+import Header from "./components/header.js";
+import NewPackage from "./components/newPackage.js";
+import PackageCard from "./components/packageCard.js";
 
 import './styles/pages/index.css';
 import './styles/components/newpackage_user.css';
-import PackageCard from "./components/PackageCard.js";
 
 function ManagePackages() {
   const [showModal, setShowModal] = useState(false);

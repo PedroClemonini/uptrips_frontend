@@ -1,5 +1,5 @@
 
-import Button from "./Button.js";
+import Button from "./button.js";
 
 import plus from "../imgs/icons/plus.png";
 import bus from "../imgs/icons/bus.png";

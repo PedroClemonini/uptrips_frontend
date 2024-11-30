@@ -1,6 +1,6 @@
 
-import Header from "./components/Header.js";
-import Card from './components/Card.js';
+import Header from "./components/header.js";
+import Card from './components/card.js';
 
 import './styles/pages/index.css';
 

@@ -8,6 +8,7 @@ function Link({classe, href, target, children}){
                 className={`link ${classe}`}
                 target="_blank"
                 href={href}
+                rel="noreferrer"
             >
                 {children}
             </a>
@@ -18,6 +19,7 @@ function Link({classe, href, target, children}){
                 className={`link ${classe}`}
                 href={href}
                 target={target}
+                rel="noreferrer"
             >
                 {children}
             </a>

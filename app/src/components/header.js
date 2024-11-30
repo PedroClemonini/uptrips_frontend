@@ -1,5 +1,5 @@
 
-import Link from './Link.js';
+import Link from './link.js';
 
 import '../styles/components/header.css';
 

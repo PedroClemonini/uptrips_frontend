@@ -1,9 +1,9 @@
 
 import React, { useState } from "react";
 
-import Header from "./components/Header.js";
-import NewUser from "./components/NewUser.js";
-import User from "./components/UserCard.js";
+import Header from "./components/header.js";
+import NewUser from "./components/newUser.js";
+import User from "./components/userCard.js";
 
 import './styles/pages/index.css';
 

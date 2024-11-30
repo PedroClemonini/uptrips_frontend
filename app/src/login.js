@@ -4,12 +4,12 @@ import React, { useState } from "react";
 import api from "./Api.js";
 import Cookies from "js-cookie";
 
-import Logout from "./components/Logout.js";
-import GetUser from "./components/get.js";
+// import Logout from "./components/logout.js";
+// import GetUser from "./components/get.js";
 
-import Input from "./components/Input.js";
-import Button from "./components/Button.js";
-import Link from "./components/Link.js";
+import Input from "./components/input.js";
+import Button from "./components/button.js";
+import Link from "./components/link.js";
 
 import logo from "./imgs/logo.png";
 

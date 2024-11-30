@@ -1,6 +1,5 @@
-import React, { useState } from "react";
 
-import Header from "./components/Header.js";
+import Header from "./components/header.js";
 
 import "./styles/pages/index.css";
 
