@@ -1,6 +1,6 @@
 
 import Header from "./components/header.js";
-import Card from './components/Card.js';
+import Card from './components/dard.js';
 
 import './styles/pages/index.css';
 
