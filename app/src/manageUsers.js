@@ -1,37 +1,39 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NewUser from "./components/newUser.js";
 import User from "./components/userCard.js";
-
-import './styles/pages/index.css';
+import LoadUserService from "./services/LoadUserService.js";
+import Header from './components/header'
+import "./styles/pages/index.css";
 
 function ManageUsers() {
   const [showModal, setShowModal] = useState(false);
-
+  const [users, setUsers] = useState([]);
   // Função para abrir o modal
   const openModal = () => {
     setShowModal(true);
   };
 
-  // Função para fechar o modal
   const closeModal = () => {
     setShowModal(false);
   };
 
+  useEffect(() => {
+    const fetchUsers = async () => {
+      const loadedUsers = await LoadUserService();
+      setUsers(loadedUsers);
+    };
+    fetchUsers();
+  }, []);
+
   return (
     <div className="ManageUsers">
-      <a href="/" id="back">← MENU PRINCIPAL</a>
+      <Header />
       <section className={`manage_section ${showModal ? "blurred" : ""}`}>
         <User onClick={openModal} />
-
-        <User name="Eytor" number="123" id="01" />
-        <User name="Eytorasd asdasda sdasdasdasf asfas" number="12234234234233" id="01" />
-        <User name="Eytor" number="123" id="01" />
-        <User name="Eytor" number="123" id="01" />
-        <User name="Eytor" number="123" id="01" />
-        <User name="Eytor" number="123" id="01" />
-        <User name="Eytor" number="123" id="01" />
-        <User name="Eytor" number="123" id="01" />
-        <User name="Eytor" number="123" id="01" />
+        {users.map((user) => (
+          <User name={user.name} id={user.id} />
+        ))}
+        ;
       </section>
 
       {showModal && (
@@ -41,6 +43,6 @@ function ManageUsers() {
       )}
     </div>
   );
-};
+}
 
 export default ManageUsers;
