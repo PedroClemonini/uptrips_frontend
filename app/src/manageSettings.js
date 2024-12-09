@@ -9,7 +9,7 @@ function ManageSettings() {
     <div className="ManageSettings">
         <Header></Header>
         <a href="/" id="back">← MENU PRINCIPAL</a>
-        <section class="manage_section">
+        <section className="manage_section">
 
         </section>
     </div>

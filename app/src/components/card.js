@@ -15,7 +15,7 @@ function Card({path, icon, title}){
     const img = icons[icon]; 
 
     return(
-        <a href={path} class="card">
+        <a href={path} className="card">
             <img src={img} alt="Ícone"></img>
             <span>{title}</span>
         </a>

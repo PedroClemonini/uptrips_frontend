@@ -1,25 +1,21 @@
-
 import React, { useState } from "react";
-
-import api from "./Api.js";
-import Cookies from "js-cookie";
-
-// import Logout from "./components/logout.js";
-// import GetUser from "./components/get.js";
+import { useNavigate } from "react-router-dom";
 
 import Input from "./components/input.js";
 import Button from "./components/button.js";
-import Link from "./components/link.js";
-
+import { Outlet, Link } from "react-router-dom";
 import logo from "./imgs/logo.png";
-
+import Cookies from "js-cookie";
 import "./styles/pages/index.css";
 import "./styles/pages/login.css";
+import LoginService from "./services/UserService.js";
 
 function Login() {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
-    login_email: "",
-    login_password: "",
+    email: "",
+    password: "",
   });
 
   const [errors, setErrors] = useState({});
@@ -29,104 +25,87 @@ function Login() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({...formData, [name]: value,});
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newErrors = {};
 
-    if (!validateEmail(formData.login_email)) {newErrors.email = "E-mail inválido."};
-    if (!validatePassword(formData.login_password)){newErrors.password = "Senha deve ter pelo menos 8 caracteres.";}
+    if (!validateEmail(formData.email)) {
+      newErrors.email = "E-mail inválido.";
+    }
+    if (!validatePassword(formData.password)) {
+      newErrors.password = "Senha deve ter pelo menos 8 caracteres.";
+    }
 
     setErrors(newErrors);
 
-    if (Object.keys(newErrors).length !== 0) {
-        alert("Corrija os campos!");
-    } else {
-        alert("Login realizado com sucesso!");
-    }
-
     try {
-      await api.get("sanctum/csrf-cookie", { withCredentials: true });
-      await api.post("/login", formData, {
-        headers: {
-          "X-XSRF-TOKEN": Cookies.get("XSRF-TOKEN"),
-        },
-        withCredentials: true,
-      });
-      // console.log(response.data);
+      await LoginService(formData);
+      navigate("/profile");
     } catch (error) {
-      console.error("Erro ao consumir a API", error);
-      alert(
-        "Erro ao realizar o login. Tente novamente.",
-      );
+      if (error.status === 422) {
+        alert("Credenciais inválidas Tente novamente.");
+      }
+      Cookies.remove("laravel_session");
+      Cookies.remove("XSRF-TOKEN");
     }
   };
 
   return (
     <div className="login">
-      <a href="/home" id="back">← HOME</a>
+      <a href="/" id="back">
+        ← HOME
+      </a>
       {/* <Logout /> */}
       {/* <GetUser /> */}
 
-        <div class="logo">
-          <img src={logo} alt="Logo - UP Trips"/>
-          <span>Bem-vindo(a) de volta!</span>
-        </div>
+      <div className="logo">
+        <img src={logo} alt="Logo - UP Trips" />
+        <span>Bem-vindo(a) de volta!</span>
+      </div>
 
-        <section class="login_section">
-          <h1>LOGIN</h1>
+      <section className="login_section">
+        <h1>LOGIN</h1>
 
-          <form method="#" action="#" onSubmit={handleSubmit}>
-            <Input
-              label="Email"
-              type="email"
-              name="login_email"
-              placeholder="Insira seu e-mail"
-              value={formData.login_email}
-              onChange={handleChange}
-              req="true"
-            >
-            </Input>
-            {errors.email && <span className="error">{errors.email}</span>}
+        <form onSubmit={handleSubmit}>
+          <Input
+            label="Email"
+            type="email"
+            name="email"
+            placeholder="Insira seu e-mail"
+            value={formData.email}
+            onChange={handleChange}
+            req="true"
+          ></Input>
+          {errors.email && <span className="error">{errors.email}</span>}
 
-            <Input
-              label="Senha"
-              type="password"
-              name="login_password"
-              placeholder="Insira sua senha"
-              value={formData.login_password}
-              onChange={handleChange}
-              req="true"
-            >
-            </Input>
-            {errors.password && <span className="error">{errors.password}</span>}
-          
-            <Button
-              type="submit"
-            >
-              Login
-            </Button>
-          </form>
+          <Input
+            label="Senha"
+            type="password"
+            name="password"
+            placeholder="Insira sua senha"
+            value={formData.password}
+            onChange={handleChange}
+            req="true"
+          ></Input>
+          {errors.password && <span className="error">{errors.password}</span>}
 
-          <Link
-              href="/"
-              classe="forgot"
-          >
-              Esqueceu sua senha?
-          </Link>
+          <Button type="submit">Login</Button>
+        </form>
+
+        <Link to="/" className="forgot">
+          Esqueceu sua senha?
+        </Link>
 
         <h2>É novo(a) por aqui?</h2>
-        <Link
-            href="/register"
-            classe="register"
-            >
-            Cadastre-se!
+        <Link to="/register" className="register">
+          Cadastre-se!
         </Link>
-        </section>
-      </div>
+      </section>
+    </div>
   );
-};
+}
 
 export default Login;

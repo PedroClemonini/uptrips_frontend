@@ -10,14 +10,14 @@ function UserCard({name, number, id, onClick}){
     if({name}.name !== undefined){
         return(
             <div className="UserCard">
-                <a href="/" class="user_old">
-                    <div class="background">
+                <a href="/" className="user_old">
+                    <div className="background">
                         <img src={user} alt="Usuário" />
                     </div>
-                    <div class="info">
-                        <span class="id">ID: {id}</span>
-                        <span class="name">NOME: {name}</span>
-                        <span class="number">CEL: {number}</span>
+                    <div className="info">
+                        <span className="id">ID: {id}</span>
+                        <span className="name">NOME: {name}</span>
+                        <span className="number">CEL: {number}</span>
                     </div>
                 </a>
             </div>
@@ -26,11 +26,11 @@ function UserCard({name, number, id, onClick}){
     } else {
         return(
             <div className="UserCard">
-                <Button onClick={onClick} classe="user_new">
-                    <div class="background">
+                <Button onClick={onClick} className="user_new">
+                    <div className="background">
                         <img src={plus} alt="Novo Usuário" />
                     </div>
-                    <span class="new">NOVO USUÁRIO</span>
+                    <span className="new">NOVO USUÁRIO</span>
                 </Button>
             </div>
         );

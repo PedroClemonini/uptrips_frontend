@@ -23,7 +23,6 @@ function ManageUsers() {
 
   return (
     <div className="ManageUsers">
-      <Header user="admin" />
       <a href="/" id="back">← MENU PRINCIPAL</a>
       <section className={`manage_section ${showModal ? "blurred" : ""}`}>
         <User onClick={openModal} />
