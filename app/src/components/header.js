@@ -12,7 +12,7 @@ function Header() {
   useEffect(() => {
     const userId = Cookies.get("userId");
     setIsLogged(!!userId);
-  });
+  },[]);
 
 
   return (
