@@ -7,7 +7,7 @@ import LogoutService from "../services/LogoutService";
 import { useNavigate } from "react-router-dom";
 function Profile() {
 
-  const userType =Cookies.get("levelUser");
+  const userType = Number(Cookies.get("levelUser"));
 
   const navigate = useNavigate();
   const handleLogout = () => {
@@ -19,7 +19,8 @@ function Profile() {
     <div className="Profile">
        <Header />
       <section className="content">
-      {(userType == 1) ? <ManagerView /> : <ManageUsers />}
+      {(userType
+       === 1) ? <ManagerView /> : <ManageUsers />}
       </section>
       <p onClick={handleLogout}> Sair </p>
     </div>

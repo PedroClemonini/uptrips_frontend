@@ -1,8 +1,6 @@
 import React from "react";
 import "react-router-dom";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
-
-import ManagerView from "./managerView.js";
 import ManagePackages from "./managePackages.js";
 import ManageUsers from "./manageUsers.js";
 import ManageSettings from "./manageSettings.js";
@@ -16,6 +14,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
+        
         <Route path="/managepackages" element={<ManagePackages />} />
         <Route path="/managesettings" element={<ManageSettings />} />
         <Route path="/manageusers" element={<ManageUsers />} />
