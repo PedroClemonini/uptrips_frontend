@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import api from "./Api.js";
 import Cookies from "js-cookie";
-import { Outlet, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Input from "./components/input.js";
 import Button from "./components/button.js";
 import { useNavigate } from "react-router-dom";

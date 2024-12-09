@@ -2,7 +2,7 @@ import "../styles/components/header.css";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 
-import { Outlet, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import user from '../imgs/icons/user.png'
 function Header() {

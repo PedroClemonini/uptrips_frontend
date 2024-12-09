@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import Input from "./components/input.js";
 import Button from "./components/button.js";
-import { Outlet, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import logo from "./imgs/logo.png";
 import Cookies from "js-cookie";
 import "./styles/pages/index.css";
