@@ -2,7 +2,7 @@ import Header from "./header.js";
 import '../styles/pages/index.css';
 import Cookies from "js-cookie";
 import ManagerView from "../managerView.js";
-import ManageUsers from "../manageUsers.js";
+import UserView from "../userView.js";
 import LogoutService from "../services/LogoutService";
 import { useNavigate } from "react-router-dom";
 function Profile() {
@@ -20,7 +20,7 @@ function Profile() {
        <Header />
       <section className="content">
       {(userType
-       === 1) ? <ManagerView /> : <ManageUsers />}
+       === 1) ? <ManagerView /> : <UserView />}
       </section>
       <p onClick={handleLogout}> Sair </p>
     </div>

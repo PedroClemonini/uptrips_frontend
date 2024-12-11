@@ -11,13 +11,13 @@ function PackageCard({id, title, price, onClick}){
         return(
             <div className="PackageCard">
                 <a href="/" className="package_old">
-                    <div class="background">
+                    <div className="background">
                         <img src={bus} alt="Viagem" />
                     </div>
                     <div class="info">
-                        <span class="title">ID: {id}</span>
-                        <span class="title">TÍTULO: {title}</span>
-                        <span class="price">PREÇO: {price}</span>
+                        <span className="title">ID: {id}</span>
+                        <span className="title">TÍTULO: {title}</span>
+                        <span className="price">PREÇO: {price}</span>
                     </div>
                 </a>
             </div>
@@ -27,10 +27,10 @@ function PackageCard({id, title, price, onClick}){
         return(
             <div className="PackageCard">
                 <Button onClick={onClick} classe="package_new">
-                    <div class="background">
+                    <div className="background">
                         <img src={plus} alt="Nova Viagem" />
                     </div>
-                    <span class="new">NOVA VIAGEM</span>
+                    <span className="new">NOVA VIAGEM</span>
                 </Button>
             </div>
         );

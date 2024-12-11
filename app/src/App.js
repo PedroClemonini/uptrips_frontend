@@ -4,6 +4,7 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 import ManagePackages from "./managePackages.js";
 import ManageUsers from "./manageUsers.js";
 import ManageSettings from "./manageSettings.js";
+import ManageDestination from "./manageDestination.js";
 import Login from "./login.js";
 import Register from "./register.js";
 import Home from "./home.js";
@@ -14,7 +15,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
-        
+          <Route path="/managedestination" element={<ManageDestination />} />
         <Route path="/managepackages" element={<ManagePackages />} />
         <Route path="/managesettings" element={<ManageSettings />} />
         <Route path="/manageusers" element={<ManageUsers />} />
