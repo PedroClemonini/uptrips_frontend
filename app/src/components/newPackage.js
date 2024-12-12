@@ -1,22 +1,24 @@
-import '../styles/newpackage.css';
-import Input from "./input";
-import Title from './title';
-import Button from './button';
+
+import Input from "./input.js";
+import Title from './title.js';
+import Button from "./button.js";
+
+import '../styles/components/newpackage_user.css';
 
 function NewPackage({ onClose }) {
     return (
         <div className="menu_package">
-            <Title content="ADICIONAR VIAGEM" />
+            <Title>ADICIONAR VIAGEM</Title>
 
             <form method="post" action="#">
-                <Input label="Nome da viagem" type="text" name="name" />
-                <Input label="Preço da viagem" type="text" name="price" />
-                <Input label="Descrição" type="textarea" name="description" />
-                <Input label="Máximo de passageiros" type="number" name="max_passengers" />
-                <Input label="Vagas disponíveis" type="number" name="passengers" />
-                <Input label="Data de início da viagem" type="date" name="date_init" />
-                <Input label="Data de término da viagem" type="date" name="date_end" />
-                <Input label="Imagem" type="file" name="image" />
+                <Input label="Nome da viagem" type="text" name="name" placeholder="Título da viagem..." req="true"/>
+                <Input label="Preço da viagem" type="text" name="price" placeholder="Preço em R$ da viagem..." req="true"/>
+                <Input label="Descrição" type="textarea" name="description" placeholder="Breve descrição da viagem..." />
+                <Input label="Máximo de passageiros" type="text" name="max_passengers" placeholder="Máximo de assentos contando todos os ônibus disponíveis" req="true"/>
+                <Input label="Vagas disponíveis" type="text" name="passengers" placeholder="Vagas restantes (em caso de lugares reservados)" req="true"/>
+                <Input label="Data de início da viagem" type="date" name="date_init" req="true"/>
+                <Input label="Data de término da viagem" type="date" name="date_end" req="true"/>
+                <Input label="Imagem" type="file" name="image" req="true"/>
                 <Input label="Viagem disponível?" type="checkbox" name="trip" value="Sim" />
 
                 <Input type="submit" value="Adicionar" />

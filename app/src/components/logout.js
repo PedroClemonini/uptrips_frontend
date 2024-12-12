@@ -13,9 +13,9 @@ export default function Logout() {
         },
         withCredentials: true,
       });
-      console.log(response.data);
+      console.log("Logout realizado com sucesso:", response.data);
     } catch (error) {
-      console.error("Erro ao consumir a API", error);
+      console.error("Erro ao consumir à API", error);
     }
   };
 

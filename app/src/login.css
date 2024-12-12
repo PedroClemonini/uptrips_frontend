@@ -13,6 +13,7 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
+  padding: 20px; 
 }
 
 .cadastro-container {
@@ -20,9 +21,11 @@ body {
   border-radius: 10px;
   box-shadow: 0 3px 9px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  max-width: 400px;
+  max-width: 100%;
   width: 100%;
+  max-width: 400px;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .cadastro-title {
@@ -74,4 +77,31 @@ body {
 .success-message {
   color: var(--success-color);
   margin: 10px 0;
+}
+
+
+@media (max-width: 768px) {
+  .cadastro-container {
+    padding: 15px;
+  }
+
+  .cadastro-title {
+    font-size: 22px;
+  }
+
+  .cadastro-input, .cadastro-button {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cadastro-title {
+    font-size: 20px;
+  }
+
+  .cadastro-input, .cadastro-button {
+    font-size: 12px;
+    padding: 6px;
+  }
 }

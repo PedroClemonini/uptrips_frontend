@@ -1,40 +1,50 @@
-import Link from './link.js';
-import '../styles/header.css';
+import "../styles/components/header.css";
+import { useEffect, useState } from "react";
+import Cookies from "js-cookie";
 
-function Header({user}){
+import { Link } from "react-router-dom";
 
-    if({user}.user === "admin"){
-        return (
-             <div className="header">
-                <div class="main_title">
-                    UP Trips
-                </div>
-                <div class="links">
-                    <Link href="/home" target="" >Home</Link>
-                    <Link href="/users" target="" >Usuários</Link>
-                    <Link href="/packages" target="" >Pacotes</Link>
-                    <Link href="/config" target="" >Configurações</Link>
-                    <Link href="/signout" target="" >Sair</Link>
-                </div>
-            </div>
-        );
-    } else {
-        return (
-            <div className="header">
-                <div class="main_title">
-                    UP Trips
-                </div>
-    
-                <div class="links">
-                    <Link href="/home" content="Home" target="" >Home</Link>
-                    <Link href="#" content="Destinos" target="" >Destinos</Link>
-                    <Link href="#" content="Como Agendar?" target="" >Pacotes</Link>
-                    <Link href="#feedacks" content="Feedbacks" target="" >Feedbacks</Link>
-                    <Link href="#" content="Login" target="" >Login</Link>
-                </div>
-            </div>
-        );
-    }
+import user from '../imgs/icons/user.png'
+function Header() {
+  const [isLogged, setIsLogged] = useState(false);
+
+
+  useEffect(() => {
+    const userId = Cookies.get("userId");
+    setIsLogged(!!userId);
+  },[]);
+
+
+  return (
+    <div className="header">
+      <div className="main_title">UP Trips</div>
+
+      <div className="links">
+        <Link className="link" to="/" >
+          Home
+        </Link>
+        <Link className="link" to="/trips" >
+          Destinos
+        </Link>
+        <Link className="link" to="/books" >
+          Pacotes
+        </Link>
+        <Link className="link" to="/feedacks" >
+          Feedbacks
+        </Link>
+        {isLogged ? (
+          <Link to="/profile" className="link">
+            {" "}
+            <img className="icon" src={user} alt="user-icon"/>{" "}
+          </Link>
+        ) : (
+          <Link to="/login" className="link ">
+            Login
+          </Link>
+        )}{" "}
+      </div>
+    </div>
+  );
 }
 
 export default Header;
