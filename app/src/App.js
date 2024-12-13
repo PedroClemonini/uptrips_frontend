@@ -21,7 +21,6 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<ManagerView />} />
         <Route path="/filtro" element={<TripFilter/>} />
         <Route path="/footer" element={<Footer/>} />
 
