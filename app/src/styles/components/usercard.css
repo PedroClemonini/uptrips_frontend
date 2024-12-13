@@ -1,14 +1,14 @@
 .UserCard {
     border-radius: 15px;
-    box-shadow: 3px 6px 9px rgba(0, 0, 0, 0.4);
+    box-shadow: 3px 6px 9px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: all 150ms ease-in-out;
-    height: 300px;
-    width: 250px;
+    height: 20vh;
+    width: 10vw;
 }
 
 .UserCard:hover, .user_new:hover {
-    box-shadow: 3px 9px 9px rgba(0, 0, 0, 0.4);
+    box-shadow: 3px 9px 9px rgba(0, 0, 0, 0.2);
     cursor: pointer;
 }
 

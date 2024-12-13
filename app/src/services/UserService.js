@@ -2,8 +2,9 @@ import api from "../Api";
 import Cookies from "js-cookie";
 
 async function LoginService(formData) {
+
   try {
-    if (!!Cookies.get("XSRF-TOKEN")) {
+    if (!!Cookies.get("laravel_session")) {
       alert("Você já está conectado");
     }
     await api.get("sanctum/csrf-cookie", { withCredentials: true });
