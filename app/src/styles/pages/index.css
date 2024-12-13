@@ -22,12 +22,12 @@ html {
 }
 
 #root {
-  margin: 3em 0;
   height: 100%;
   width: 100%;
 }
 
 body {
+  margin: 0;
   align-items: center;
   background-color: white;
   display: flex;
@@ -35,8 +35,6 @@ body {
   position: relative;
   height: 100%;
   width: 100%;
-  margin:0;
-  padding:0;
 }
 
 #back {

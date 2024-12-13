@@ -55,9 +55,10 @@ function Login() {
 
   return (
  <div> 
- <Header />
     <div className="login">
- 
+    <a href="/" id="back">
+        ← HOME
+      </a>
       <section className="login_section">
         <h1>LOGIN</h1>
 
