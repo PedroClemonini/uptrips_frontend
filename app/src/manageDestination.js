@@ -4,7 +4,7 @@ import PackageCard from "./components/packageCard";
 import LoadDestination from "./services/LoadDestination";
 import Header from './components/header'
 import "./styles/pages/index.css";
-
+import UniversalCard from "./components/universalCard.js";
 export default function ManageDestination() {
   const [showModal, setShowModal] = useState(false);
   const [destinations, setDestinations] = useState([]);
@@ -31,7 +31,7 @@ export default function ManageDestination() {
       <section className={`manage_section ${showModal ? "blurred" : ""}`}>
         <PackageCard onClick={openModal} />
         {destinations.map((destination) => (
-          <PackageCard  key={destination.id} title={destination.name} id={destination.id} />
+          <UniversalCard  data={destination} keys={['id','name']} icon="bus" subkey={{id:'id',name:"Titulo"}} />
         ))}
       </section>
 

@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import NewUser from "./components/newUser.js";
-import User from "./components/userCard.js";
 import LoadUserService from "./services/LoadUserService.js";
-import Header from './components/header'
+import Header from "./components/header";
 import "./styles/pages/index.css";
-
+import "./styles/components/usercard.css"
+import UniversalCard from "./components/universalCard.js";
 function ManageUsers() {
   const [showModal, setShowModal] = useState(false);
   const [users, setUsers] = useState([]);
-  // Função para abrir o modal
+
   const openModal = () => {
     setShowModal(true);
   };
@@ -29,11 +29,22 @@ function ManageUsers() {
     <div className="ManageUsers">
       <Header />
       <section className={`manage_section ${showModal ? "blurred" : ""}`}>
-        <User onClick={openModal} />
+
+        <div className="UserCard">
+          <button onClick={openModal} className="user_new">
+            <div className="background"></div>
+            <span className="new">NOVO USUÁRIO</span>
+          </button>
+        </div>
+
         {users.map((user) => (
-          <User name={user.name} id={user.id} />
+          <UniversalCard
+            data={user}
+            icon="user"
+            keys={["id", "name"]}
+            subkey={{ name: "Nome", id: "id" }}
+          />
         ))}
-        ;
       </section>
 
       {showModal && (

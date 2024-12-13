@@ -54,10 +54,9 @@ body {
   border-radius: 5px;
   box-shadow: 3px 6px 9px rgba(0, 0, 0, 0.3);
   flex-wrap: wrap;
-  gap: 150px;
+  gap: 4em;
   margin: 100px auto;
   padding: 80px;
-  min-height: 600px;
   justify-content: space-evenly;
   width: 90%;
 }
