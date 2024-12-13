@@ -9,7 +9,7 @@ import Cookies from "js-cookie";
 import "./styles/pages/index.css";
 import "./styles/pages/login.css";
 import LoginService from "./services/UserService.js";
-
+import Header from './components/header.js'
 function Login() {
   const navigate = useNavigate();
 
@@ -54,18 +54,10 @@ function Login() {
   };
 
   return (
+ <div> 
+ <Header />
     <div className="login">
-      <a href="/" id="back">
-        ← HOME
-      </a>
-      {/* <Logout /> */}
-      {/* <GetUser /> */}
-
-      <div className="logo">
-        <img src={logo} alt="Logo - UP Trips" />
-        <span>Bem-vindo(a) de volta!</span>
-      </div>
-
+ 
       <section className="login_section">
         <h1>LOGIN</h1>
 
@@ -104,6 +96,7 @@ function Login() {
           Cadastre-se!
         </Link>
       </section>
+    </div>
     </div>
   );
 }
