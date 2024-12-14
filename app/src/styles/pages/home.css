@@ -89,9 +89,52 @@ body {
 .package-list {
   display: flex;
   justify-content: center;
+  border: solid 1px red;
   gap: 20px;
   flex-wrap: wrap;
   width: 100%;
+}
+
+.toptrip {
+  border: solid 1px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 350px;
+  overflow: hidden;
+  width: 300px;
+}
+
+.toptrip .img {
+  border: solid 1px red;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  height: 65%;
+  width: 100%;
+}
+
+.toptrip .img img {
+  width: 100%;
+}
+
+.toptrip .info {
+  border: solid 1px green;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 30px 0;
+}
+
+.toptrip .info h1 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.toptrip .info span {
+  font-size: 18px;
+  font-weight: 500;
 }
 
 section#steps {
