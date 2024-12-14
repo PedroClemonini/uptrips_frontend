@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Header from "./components/header";
 import Footer from "./components/footer";
 import Feedback from "./components/feedback";
-import PackageCard from "./components/packageCard";
 import "./styles/pages/home.css";
 import Step from "./components/steps";
 import getDestination from "./services/destinationServices/getDestination";
