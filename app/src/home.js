@@ -5,13 +5,17 @@ import Feedback from "./components/feedback";
 import Step from "./components/steps";
 import PackageCard from './components/packageCard';
 import './styles/pages/home.css';
-import LoadPackage from './services/packageServices/LoadPackage' 
+
+import LoadPackage from './services/packageServices/LoadPackage'
+import getPackage from "./services/packageServices/getPackage";
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Home() {
-  const [packages, setPackages] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+//   const [packages, setPackages] = useState([]);
+//   const [loading, setLoading] = useState(true);
+//   const [error, setError] = useState(null);
+//   const navigate = useNavigate();
 
   // useEffect(() => {
   //   const fetchPackages = async () => {
@@ -36,6 +40,12 @@ export default function Home() {
   //   fetchPackages();
   // }, []);
 
+//   useEffect(() => {
+//     const fetchPackages = async () => {
+//       try {
+//         const loadedPackages = await LoadPackage();
+
+
   // if (loading) {
   //   return <div>Carregando pacotes...</div>;
   // }
@@ -44,6 +54,30 @@ export default function Home() {
   //   return <div>{error}</div>;
   // }
 
+
+//   const packageSelect = async (id) => {
+//     const data = await getPackage(id);
+//     navigate('/package-view', { state: { packageData: data } });
+//   }
+
+//   if (loading) {
+//     return (
+//       <div className="loading-container">
+//         <div className="loading-spinner"></div>
+//         <p>Carregando pacotes...</p>
+//       </div>
+//     );
+//   }
+
+//   if (error) {
+//     return (
+//       <div className="error-container">
+//         <h2>Ops! Algo deu errado...</h2>
+//         <p>{error}</p>
+//         <button onClick={() => window.location.reload()}>Tentar Novamente</button>
+//       </div>
+//     );
+//   }
 
 
   return (
@@ -60,14 +94,15 @@ export default function Home() {
             Reservar Agora!
           </button>
         </section>
+
         <section className="recommended-trips">
           <h1>VIAGENS RECOMENDADAS!</h1>
           <section className="package-list">
-            {packages.map((packageItem) => (
+            {packages.slice(0, 3).map((packageItem) => (
               <PackageCard
                 key={packageItem.id}
                 data={packageItem}
-                onClick={() => alert(`Visualizar detalhes do pacote: ${packageItem.name}`)}
+                onClick={() => packageSelect(packageItem.id)}
               />
             ))}
           </section>
@@ -121,3 +156,4 @@ export default function Home() {
     </div>
   );
 }
+
