@@ -1,0 +1,110 @@
+:root {
+  --primary-color: #15847b;
+  --error-color: #ff4365;
+  --success-color: #28a745;
+  --text-color: #030301;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f4f4f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 20px; 
+  box-sizing: border-box;
+}
+
+.cadastro-container {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 100%;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  box-sizing: border-box;
+  position: relative; 
+}
+
+.cadastro-title {
+  color: var(--primary-color);
+  font-size: 24px;
+  margin-bottom: 20px;
+  margin-top: 40px; 
+}
+
+.cadastro-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.cadastro-input {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin: 10px 0;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.cadastro-button {
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  box-sizing: border-box;
+}
+
+.cadastro-button:hover {
+  background-color: #117a65;
+}
+
+.error-message {
+  color: var(--error-color);
+  margin: 10px 0;
+}
+
+.success-message {
+  color: var(--success-color);
+  margin: 10px 0;
+}
+
+
+@media (max-width: 768px) {
+  .cadastro-container {
+    padding: 15px;
+  }
+
+  .cadastro-title {
+    font-size: 22px;
+  }
+
+  .cadastro-input, .cadastro-button {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cadastro-title {
+    font-size: 20px;
+  }
+
+  .cadastro-input, .cadastro-button {
+    font-size: 12px;
+    padding: 6px;
+  }
+}
