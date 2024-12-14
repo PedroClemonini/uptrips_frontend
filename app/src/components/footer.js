@@ -16,17 +16,17 @@ function Footer() {
 
         <div class="topic">
             <h2>Contato</h2>
-            <a href="https://wa.me/5511931319915" target="_blank">WhatsApp</a>
+            <a href="https://wa.me/5511931319915" target="_blank" rel="noreferrer">WhatsApp</a>
             <a href="/">E-mail</a>
         </div>
 
-        <div class="topic"><h2>Destinos</h2><a href="">Passagens</a></div>
+        <div class="topic"><h2>Destinos</h2><a href="/">Passagens</a></div>
 
         <div class="topic">
             <h2>Redes Sociais</h2>
             <div>
-                <a href="https://www.instagram.com/voudeuptrips/" target="_blank"><img src={instagram} alt="Instagram"/></a>
-                <a href="https://www.facebook.com/voudeuptrips" target="_blank"><img src={facebook} alt="Facebook"/></a>
+                <a href="https://www.instagram.com/voudeuptrips/" target="_blank" rel="noreferrer"><img src={instagram} alt="Instagram"/></a>
+                <a href="https://www.facebook.com/voudeuptrips" target="_blank" rel="noreferrer"><img src={facebook} alt="Facebook"/></a>
             </div>
         </div>
       </div>
