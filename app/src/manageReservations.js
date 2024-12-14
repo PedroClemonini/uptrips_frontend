@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import NewUser from "./components/newUser.js";
 import PackageCard from "./components/packageCard";
-import LoadReservation from "./services/LoadReservation";
+import LoadReservation from "./services/reservationServices/LoadReservation";
 import Header from './components/header'
 import "./styles/pages/index.css";
 import UniversalCard from "./components/universalCard.js";

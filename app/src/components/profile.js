@@ -3,7 +3,7 @@ import '../styles/pages/index.css';
 import Cookies from "js-cookie";
 import ManagerView from "../managerView.js";
 import UserView from "../userView.js";
-import LogoutService from "../services/LogoutService";
+import LogoutService from "../services/userServices/LogoutService";
 import { useNavigate } from "react-router-dom";
 function Profile() {
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import NewUser from "./components/newUser.js";
-import LoadUserService from "./services/LoadUserService.js";
+import LoadUserService from "./services/userServices/LoadUserService";
 import Header from "./components/header";
 import "./styles/pages/index.css";
 import "./styles/components/usercard.css"

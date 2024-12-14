@@ -1,4 +1,4 @@
-import api from "../Api";
+import api from "../../Api";
 import Cookies from "js-cookie";
 
 async function LoginService(formData) {
