@@ -13,7 +13,7 @@ import Profile from "./components/profile.js";
 import ManageHosting from "./manageHosting.js";
 import ManageTour from "./manageTours.js";
 import ManageReservation from "./manageReservations.js";
-
+import Hosting from "./forms/Hosting.js";
 export default function App() {
   return (
     <BrowserRouter>
@@ -24,6 +24,7 @@ export default function App() {
         <Route path="/manageusers" element={<ManageUsers />} />
         <Route path="/destination" element={<ManageDestination />} />
         <Route path="/hostings" element={<ManageHosting />} />
+        <Route path="/editHostings" element={<Hosting />} />
         <Route path="/tours" element={<ManageTour />} />
         <Route path="/packages" element={<ManagePackages />} />
         <Route path="/reservations" element={<ManageReservation />} />
