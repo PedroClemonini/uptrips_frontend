@@ -3,7 +3,7 @@ import Cookies from 'js-cookie';
 export default async function setPackage(form){
   try {
 
-    await api.post('/api/package', form, {
+    await api.post('/api/packages', form, {
       headers: {
         "Content-Type": "application/json",
          "X-XSRF-TOKEN": Cookies.get("XSRF-TOKEN"),

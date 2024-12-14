@@ -4,9 +4,6 @@ import LoadUserService from "./services/userServices/LoadUserService";
 import Header from "./components/header";
 import "./styles/pages/index.css";
 import "./styles/components/usercard.css"
-import UniversalCard from "./components/universalCard.js";
-import userRow from "./components/userRow.js";
-
 import "./styles/pages/manage_users.css";
 import UserRow from "./components/userRow.js";
 
@@ -16,14 +13,13 @@ function ManageUsers() {
 
   const toggleModal = () => setShowModal((prev) => !prev);
 
-  // Carregar os usuários na montagem do componente
-  // useEffect(() => {
-  //   const fetchUsers = async () => {
-  //     const loadedUsers = await LoadUserService();
-  //     setUsers(loadedUsers);
-  //   };
-  //   fetchUsers();
-  // }, []);
+   useEffect(() => {
+   const fetchUsers = async () => {
+     const loadedUsers = await LoadUserService();
+       setUsers(loadedUsers);
+     };
+     fetchUsers();
+ }, []);
 
   return (
     <div className="ManageUsers">
