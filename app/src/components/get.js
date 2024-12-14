@@ -1,7 +1,6 @@
 import React from "react";
 import api from "../Api";
 import Cookies from "js-cookie";
-import '../styles/get.css'; 
 
 export default function GetUser() {
   const handleSubmitGet = async (e) => {
@@ -20,10 +19,8 @@ export default function GetUser() {
   };
 
   return (
-    <div className="get-container">
-      <form onSubmit={handleSubmitGet}>
-        <button type="submit" className="get-button">Pegar</button>
-      </form>
-    </div>
+    <form onSubmit={handleSubmitGet}>
+      <button type="submit">Pegar</button>
+    </form>
   );
 }

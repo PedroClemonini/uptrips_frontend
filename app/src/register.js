@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import api from "./Api.js"; // Certifique-se de que o caminho está correto
+
+import api from "./Api.js";
 import Cookies from "js-cookie";
 import { Link } from "react-router-dom";
 import Input from "./components/input.js";
@@ -19,7 +20,6 @@ function Register() {
     password: "",
     password_confirmation: "",
   });
-
   const navigate = useNavigate();
   const [errors, setErrors] = useState({});
 
@@ -63,22 +63,19 @@ function Register() {
 
     setErrors(newErrors);
 
-    // Se não houver erros, prossiga com a submissão
-    if (Object.keys(newErrors).length === 0) {
-      try {
-        await api.get("sanctum/csrf-cookie", { withCredentials: true });
-        await api.post("/register", formData, {
-          headers: {
-            "X-XSRF-TOKEN": Cookies.get("XSRF-TOKEN"),
-          },
-          withCredentials: true,
-        });
-        alert("Registro realizado!");
-        navigate("/login");
-      } catch (error) {
-        console.error("Erro ao consumir a API", error);
-        alert("Erro ao realizar o registro. Tente novamente.");
-      }
+    try {
+      await api.get("sanctum/csrf-cookie", { withCredentials: true });
+      await api.post("/register", formData, {
+        headers: {
+          "X-XSRF-TOKEN": Cookies.get("XSRF-TOKEN"),
+        },
+        withCredentials: true,
+      });
+      alert("Registro realizado!");
+      navigate("/login");
+    } catch (error) {
+      console.error("Erro ao consumir a API", error);
+      alert("Erro ao realizar o registro. Tente novamente.");
     }
   };
 
@@ -87,6 +84,8 @@ function Register() {
       <a href="/" id="back">
         ← HOME
       </a>
+      {/* <Logout /> */}
+      {/* <GetUser /> */}
       <section className="section">
         <h1>CADASTRO</h1>
 
@@ -99,7 +98,7 @@ function Register() {
             value={formData.name}
             onChange={handleChange}
             req="true"
-          />
+          ></Input>
           {errors.name && <span className="error">{errors.name}</span>}
 
           <Input
@@ -110,7 +109,7 @@ function Register() {
             value={formData.email}
             onChange={handleChange}
             req="true"
-          />
+          ></Input>
           {errors.email && <span className="error">{errors.email}</span>}
 
           <Input
@@ -121,7 +120,7 @@ function Register() {
             value={formData.phone}
             onChange={handleChange}
             req="true"
-          />
+          ></Input>
           {errors.phone && <span className="error">{errors.phone}</span>}
 
           <Input
@@ -132,7 +131,7 @@ function Register() {
             value={formData.cpf}
             onChange={handleChange}
             req="true"
-          />
+          ></Input>
           {errors.cpf && <span className="error">{errors.cpf}</span>}
 
           <Input
@@ -143,17 +142,18 @@ function Register() {
             value={formData.rg}
             onChange={handleChange}
             req="true"
-          />
+          ></Input>
           {errors.rg && <span className="error">{errors.rg}</span>}
 
           <Input
             label="Data de nascimento"
             type="date"
             name="birth"
+            placeholder=""
             value={formData.birth}
             onChange={handleChange}
             req="true"
-          />
+          ></Input>
           {errors.date && <span className="error">{errors.date}</span>}
 
           <Input
@@ -164,7 +164,7 @@ function Register() {
             value={formData.password}
             onChange={handleChange}
             req="true"
-          />
+          ></Input>
           {errors.password && <span className="error">{errors.password}</span>}
 
           <Input
@@ -175,7 +175,7 @@ function Register() {
             value={formData.password_confirmation}
             onChange={handleChange}
             req="true"
-          />
+          ></Input>
           {errors.password_confirmation && (
             <span className="error">{errors.password_confirmation}</span>
           )}
