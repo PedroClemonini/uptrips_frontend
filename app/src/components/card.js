@@ -1,4 +1,3 @@
-
 import bus from "../imgs/icons/bus.png";
 import settings from "../imgs/icons/settings.png";
 import user from "../imgs/icons/user.png";

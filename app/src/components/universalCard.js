@@ -41,10 +41,6 @@ function UniversalCard({ data, keys, icon, subkey }) {
       : `${displayKey}: Valor não encontrado`;
   });
 
-
-
-
-  console.log(values);
   return (
     <div className="card">
       <img src={img} alt="Ícone" />

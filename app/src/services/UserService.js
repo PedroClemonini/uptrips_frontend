@@ -26,7 +26,6 @@ async function LoginService(formData) {
       },
       withCredentials: true,
     });
-    console.log(user);
     Cookies.set("userId", user.data.id);
     Cookies.set("levelUser", user.data.levelUser);
   } catch (error) {

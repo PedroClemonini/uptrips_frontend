@@ -1,46 +1,56 @@
 import React, { useEffect, useState } from "react";
-import NewUser from "./components/newUser.js";
 import PackageCard from "./components/packageCard";
 import LoadHosting from "./services/LoadHosting";
-import Header from './components/header'
+import Header from "./components/header";
 import "./styles/pages/index.css";
 import UniversalCard from "./components/universalCard.js";
+import Hosting from "./forms/Hosting.js";
 
 export default function ManageHosting() {
-  const [showModal, setShowModal] = useState(false);
-  const [destinations, setHostings] = useState([]);
-  // Função para abrir o modal
-  const openModal = () => {
-    setShowModal(true);
+  const [showComponent, setShowComponent] = useState(false);
+  const [hostings, setHostings] = useState([]);
+  const [selectedHostingId, setSelectedHostingId] = useState();
+
+  const createHosting = (id) => {
+    setSelectedHostingId(id);  // Atualiza o ID do hosting selecionado
+    setShowComponent(true);    // Exibe o componente Hosting
   };
 
-  const closeModal = () => {
-    setShowModal(false);
-  };
+  // useEffect para monitorar a mudança de selectedHostingId
+  useEffect(() => {
+  }, [selectedHostingId]);  // Dependência no selectedHostingId
 
   useEffect(() => {
-    const fetchUsers = async () => {
+    const fetchHostings = async () => {
       const loadedHostings = await LoadHosting();
       setHostings(loadedHostings);
     };
-    fetchUsers();
+    fetchHostings();
   }, []);
 
   return (
     <div className="ManageUsers">
       <Header />
-      <section className={`manage_section ${showModal ? "blurred" : ""}`}>
-        <PackageCard onClick={openModal} />
-        {destinations.map((destination) => (
-          <UniversalCard  data={destination} keys={['id','name']} icon="bus" subkey={{id:'id',name:"Titulo"}} />
-        ))}
+      <section className="manage_section">
+        {showComponent ? (
+          <Hosting id={selectedHostingId} onClose={() => setShowComponent(false)} />
+        ) : (
+          <>
+            <PackageCard onClick={() => createHosting(null)} />
+            {hostings.map((hosting) => (
+              <div key={hosting.id} onClick={() => createHosting(hosting.id)}>
+                <UniversalCard
+                  data={hosting}
+                  keys={["id", "name"]}
+                  icon="bus"
+                  subkey={{ id: "id", name: "Titulo" }}
+                />
+              </div>
+            ))}
+          </>
+        )}
       </section>
-
-      {showModal && (
-        <section className="new_package_section">
-          <NewUser onClose={closeModal} />
-        </section>
-      )}
     </div>
   );
 }
+
