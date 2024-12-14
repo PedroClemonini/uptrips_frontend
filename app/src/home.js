@@ -4,6 +4,7 @@ import Footer from "./components/footer";
 import Feedback from "./components/feedback";
 import PackageCard from "./components/packageCard";
 import "./styles/pages/home.css";
+import Step from "./components/steps";
 
 import LoadPackage from "./services/packageServices/LoadPackage";
 import getPackage from "./services/packageServices/getPackage";
@@ -97,6 +98,27 @@ export default function Home() {
       </main>
 
       <section id="steps"></section>
+      <section id="steps">
+            <h4>AGENDE SUA VIAGEM EM 3 PASSOS!</h4>
+
+            <Step
+              icon="location"
+              title="Escolha o destino"
+              text="Explore destinos incríveis e encontre sua próxima aventura!"
+            />
+            <Step
+              icon="wallet"
+              title="Fazer o pagamento"
+              text="Pagamento seguro e fácil. Sua viagem reservada em poucos minutos."
+            />
+            <Step
+              icon="smile"
+              title="Embarcar e aproveitar!"
+              text="Após a confirmação, você receberá todos os detalhesnecessários. Agora é só arrumar as malas e curtir!"
+            />
+
+            <a href="/">TÔ DENTRO!</a>
+      </section>
 
       <section id="feedbacks">
         <h2>FEEDBACK</h2>

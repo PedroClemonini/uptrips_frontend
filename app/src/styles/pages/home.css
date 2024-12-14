@@ -94,6 +94,36 @@ body {
   width: 100%;
 }
 
+section#steps {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 150px;
+}
+
+section#steps h4 {
+  color: var(--c1);
+  font-size: 40px;
+  font-weight: 800;
+}
+
+section#steps a {
+  border: solid 4px var(--c4);
+  border-radius: 10px;
+  color: var(--c4);
+  font-size: 30px;
+  font-weight: 800;
+  margin-top: 50px;
+  padding: 20px;
+  transition: all 150ms ease-in-out;
+  width: fit-content;
+}
+
+section#steps a:hover {
+  color: white;
+  background-color: var(--c4);
+}
 
 section#feedbacks {
   align-items: center;
