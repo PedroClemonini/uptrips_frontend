@@ -2,7 +2,6 @@ import React from "react";
 import "react-router-dom";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import ManagePackages from "./managePackages.js";
-
 import ManageUsers from "./manageUsers.js";
 import ManageSettings from "./manageSettings.js";
 import ManageDestination from "./manageDestination.js";

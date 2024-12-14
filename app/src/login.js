@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 import Input from "./components/input.js";
 import Button from "./components/button.js";
 import { Link } from "react-router-dom";
-import logo from "./imgs/logo.png";
 import Cookies from "js-cookie";
 import "./styles/pages/index.css";
 import "./styles/pages/login.css";
 import LoginService from "./services/UserService.js";
-import Header from './components/header.js'
 function Login() {
   const navigate = useNavigate();
 
