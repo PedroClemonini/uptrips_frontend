@@ -5,7 +5,7 @@ import Feedback from "./components/feedback";
 import PackageCard from "./components/packageCard";
 import "./styles/pages/home.css";
 import Step from "./components/steps";
-
+import getDestination from "./services/destinationServices/getDestination";
 import LoadPackage from "./services/packageServices/LoadPackage";
 import getPackage from "./services/packageServices/getPackage";
 import { useNavigate } from "react-router-dom";
@@ -19,12 +19,18 @@ export default function Home() {
   useEffect(() => {
     const fetchPackages = async () => {
       try {
-        const loadedPackages = await LoadPackage();
-
-        if (Array.isArray(loadedPackages)) {
-          setPackages(loadedPackages);
+         const loadedPackages = await LoadPackage();
+      
+     const packagesWithDestinations = await Promise.all(
+       loadedPackages.map(async (packageItem) => {
+         const destinationData = await getDestination(packageItem.id);
+         return { ...packageItem, ...destinationData }; // Combina os dados
+       }),
+     );
+        if (Array.isArray(packagesWithDestinations)) {
+          setPackages(packagesWithDestinations);
         } else {
-          console.error("Os dados carregados não são um array:", loadedPackages);
+          console.error("Os dados carregados não são um array:", packagesWithDestinations);
           setError(
             "Erro ao carregar os pacotes. Por favor, tente novamente mais tarde."
           );
@@ -146,4 +152,3 @@ export default function Home() {
     </div>
   );
 }
-
