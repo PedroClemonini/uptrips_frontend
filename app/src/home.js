@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from './components/header';
 import Footer from "./components/footer";
 import Feedback from "./components/feedback";
+import Step from "./components/steps";
 import PackageCard from './components/packageCard';
 import './styles/pages/home.css';
 import LoadPackage from './services/packageServices/LoadPackage' 
@@ -73,7 +74,25 @@ export default function Home() {
         </section>
       </main>
       <section id="steps">
-            
+            <h4>AGENDE SUA VIAGEM EM 3 PASSOS!</h4>
+
+            <Step
+              icon="location"
+              title="Escolha o destino"
+              text="Explore destinos incríveis e encontre sua próxima aventura!"
+            />
+            <Step
+              icon="wallet"
+              title="Fazer o pagamento"
+              text="Pagamento seguro e fácil. Sua viagem reservada em poucos minutos."
+            />
+            <Step
+              icon="smile"
+              title="Embarcar e aproveitar!"
+              text="Após a confirmação, você receberá todos os detalhesnecessários. Agora é só arrumar as malas e curtir!"
+            />
+
+            <a href="/">TÔ DENTRO!</a>
       </section>
 
       <section id="feedbacks">

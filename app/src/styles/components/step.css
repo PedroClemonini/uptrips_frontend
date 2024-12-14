@@ -1,0 +1,33 @@
+.Step {
+    display: flex;
+    gap: 20px;
+    width: fit-content;
+}
+
+.Step .icon {
+    align-items: center;
+    background-color: var(--c1);
+    border-radius: 10px;
+    display: flex;
+    height: 100px;
+    justify-content: center;
+    width: 100px;
+}
+
+.Step .icon img {
+    width: 80%;
+}
+
+.Step .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.Step .info h1 {
+    font-size: 20px;
+}
+
+.Step .info p {
+    width: 300px;
+}
