@@ -20,8 +20,9 @@
     flex-direction: column;
     padding: 30px;
     position: absolute;
+    transform: translate(70%, -25%);
     height: fit-content;
-    width: 800px;
+    width: 700px;
     z-index: 999;
 }
 
@@ -61,6 +62,10 @@ form input {
     width: 90%;
 }
 
+form input.error {
+    border: 2px solid red;
+}
+
 form input[type=checkbox] {
     height: 40px;
     margin-left: 40px;
@@ -69,14 +74,17 @@ form input[type=checkbox] {
 
 form input[type=submit] {
     background-color: rgb(50, 190, 50);
+    
 }
 
 form input[type=reset] {
     background-color: rgb(200, 212, 44);
+    
 }
 
 form button {
     background-color: rgb(231, 21, 21);
+    
 }
 
 form input[type=submit], form input[type=reset], form button{
@@ -88,7 +96,7 @@ form input[type=submit], form input[type=reset], form button{
     font-weight: 700;
     transition: all 150ms ease-in; 
     height: 40px;
-    width: 600px;
+    width: 490px;
     text-shadow: 0px 1px 3px black;
 }
 
