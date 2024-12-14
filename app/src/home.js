@@ -19,7 +19,7 @@ export default function Home() {
   useEffect(() => {
     const fetchPackages = async () => {
       try {
-        const loadedPackages = await LoadPackage();
+        const loadedPackages = [{id: '001' }] //await LoadPackage();
 
         if (Array.isArray(loadedPackages)) {
           setPackages(loadedPackages);
@@ -86,12 +86,28 @@ export default function Home() {
         <section className="recommended-trips">
           <h1>VIAGENS RECOMENDADAS!</h1>
           <section className="package-list">
-            {packages.slice(0, 3).map((packageItem) => (
+            {/* {packages.slice(0, 3).map((packageItem) => (
               <PackageCard
                 key={packageItem.id}
                 data={packageItem}
                 onClick={() => packageSelect(packageItem.id)}
               />
+            ))} */}
+
+            {packages.slice(0, 3).map((packageItem) => (
+              <div class="toptrip">
+                  <div class="img">
+                    <img
+                      // src={require(`./imgs${packageData.image1_path}`)}
+                      alt="Imagem do pacote"
+                    />
+                  </div>
+                  <div class="info">
+                    <h1>teste</h1>
+                    <span>teste</span>
+                  </div>
+                  <span>2 dias</span>
+              </div>
             ))}
           </section>
         </section>
