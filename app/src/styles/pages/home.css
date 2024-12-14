@@ -75,10 +75,10 @@ body {
 .recommended-trips {
   margin: 50px auto;
   text-align: center;
-  max-width: 1200px;
   display: flex;
   flex-direction: column;
   align-items: center;
+
 }
 
 .recommended-trips h1 {
@@ -89,24 +89,22 @@ body {
 .package-list {
   display: flex;
   justify-content: center;
-  border: solid 1px red;
-  gap: 20px;
+  gap:40px;
   flex-wrap: wrap;
   width: 100%;
 }
 
 .toptrip {
-  border: solid 1px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  height: 350px;
+  height: 500px;
   overflow: hidden;
-  width: 300px;
+  width: 400px;
+  box-shadow: 1px 3px 6px rgba(0, 0, 0, 0.2) ;
 }
 
 .toptrip .img {
-  border: solid 1px red;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -115,11 +113,10 @@ body {
 }
 
 .toptrip .img img {
-  width: 100%;
+  width: 150%;
 }
 
 .toptrip .info {
-  border: solid 1px green;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -127,13 +124,13 @@ body {
 }
 
 .toptrip .info h1 {
-  font-size: 20px;
+  font-size: 2.7rem;
   font-weight: 700;
   margin: 0;
 }
 
 .toptrip .info span {
-  font-size: 18px;
+  font-size: 1.6rem;
   font-weight: 500;
 }
 

@@ -19,20 +19,23 @@ export default function Home() {
   useEffect(() => {
     const fetchPackages = async () => {
       try {
-         const loadedPackages = [{id: '001' }] //await LoadPackage();
-      
-     const packagesWithDestinations = await Promise.all(
-       loadedPackages.map(async (packageItem) => {
-         const destinationData = await getDestination(packageItem.id);
-         return { ...packageItem, ...destinationData }; // Combina os dados
-       }),
-     );
+        const loadedPackages = await LoadPackage();
+
+        const packagesWithDestinations = await Promise.all(
+          loadedPackages.map(async (packageItem) => {
+            const destinationData = await getDestination(packageItem.id);
+            return { ...packageItem, ...destinationData }; // Combina os dados
+          }),
+        );
         if (Array.isArray(packagesWithDestinations)) {
           setPackages(packagesWithDestinations);
         } else {
-          console.error("Os dados carregados não são um array:", packagesWithDestinations);
+          console.error(
+            "Os dados carregados não são um array:",
+            packagesWithDestinations,
+          );
           setError(
-            "Erro ao carregar os pacotes. Por favor, tente novamente mais tarde."
+            "Erro ao carregar os pacotes. Por favor, tente novamente mais tarde.",
           );
         }
       } catch (err) {
@@ -65,7 +68,9 @@ export default function Home() {
       <div className="error-container">
         <h2>Ops! Algo deu errado...</h2>
         <p>{error}</p>
-        <button onClick={() => window.location.reload()}>Tentar Novamente</button>
+        <button onClick={() => window.location.reload()}>
+          Tentar Novamente
+        </button>
       </div>
     );
   }
@@ -92,27 +97,19 @@ export default function Home() {
         <section className="recommended-trips">
           <h1>VIAGENS RECOMENDADAS!</h1>
           <section className="package-list">
-            {/* {packages.slice(0, 3).map((packageItem) => (
-              <PackageCard
-                key={packageItem.id}
-                data={packageItem}
-                onClick={() => packageSelect(packageItem.id)}
-              />
-            ))} */}
-
+            
             {packages.slice(0, 3).map((packageItem) => (
-              <div class="toptrip">
-                  <div class="img">
-                    <img
-                      // src={require(`./imgs${packageData.image1_path}`)}
-                      alt="Imagem do pacote"
-                    />
-                  </div>
-                  <div class="info">
-                    {/* <h1>{(packageData.city)}</h1> */}
-                    {/* <span>{(packageData.adult_value).toFixed(2)}</span> */}
-                  </div>
-                  <span>2 dias</span>
+              <div onClick={() => packageSelect(packageItem.id)} class="toptrip">
+                <div class="img">
+                  <img
+                    src={require(`./imgs${packageItem.image1_path}`)}
+                    alt="Imagem do pacote"
+                  />
+                </div>
+                <div class="info">
+                  <h1>{packageItem.city}</h1>
+                  <span>{parseFloat(packageItem.adult_value).toFixed(2)}</span>
+                </div>
               </div>
             ))}
           </section>
@@ -121,25 +118,25 @@ export default function Home() {
 
       <section id="steps"></section>
       <section id="steps">
-            <h4>AGENDE SUA VIAGEM EM 3 PASSOS!</h4>
+        <h4>AGENDE SUA VIAGEM EM 3 PASSOS!</h4>
 
-            <Step
-              icon="location"
-              title="Escolha o destino"
-              text="Explore destinos incríveis e encontre sua próxima aventura!"
-            />
-            <Step
-              icon="wallet"
-              title="Fazer o pagamento"
-              text="Pagamento seguro e fácil. Sua viagem reservada em poucos minutos."
-            />
-            <Step
-              icon="smile"
-              title="Embarcar e aproveitar!"
-              text="Após a confirmação, você receberá todos os detalhes necessários. Agora é só arrumar as malas e curtir!"
-            />
+        <Step
+          icon="location"
+          title="Escolha o destino"
+          text="Explore destinos incríveis e encontre sua próxima aventura!"
+        />
+        <Step
+          icon="wallet"
+          title="Fazer o pagamento"
+          text="Pagamento seguro e fácil. Sua viagem reservada em poucos minutos."
+        />
+        <Step
+          icon="smile"
+          title="Embarcar e aproveitar!"
+          text="Após a confirmação, você receberá todos os detalhes necessários. Agora é só arrumar as malas e curtir!"
+        />
 
-            <a href="/">TÔ DENTRO!</a>
+        <a href="/">TÔ DENTRO!</a>
       </section>
 
       <section id="feedbacks">
