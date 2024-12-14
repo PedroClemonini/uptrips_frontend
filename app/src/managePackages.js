@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import NewUser from "./components/newUser.js";
 import PackageCard from "./components/packageCard";
-import LoadPackage from "./services/LoadPackage";
+import LoadPackage from "./services/packageServices/LoadPackage";
 import Header from './components/header'
 import "./styles/pages/index.css";
 import UniversalCard from "./components/universalCard.js";

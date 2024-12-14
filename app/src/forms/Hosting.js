@@ -1,9 +1,12 @@
 import { React, useState, useEffect } from "react";
-import LoadDestination from "../services/LoadDestination";
-import getHosting from "../services/getHosting";
-import setHosting from "../services/setHosting";
-import updateHosting from "../services/updateHosting";
-import deleteHosting from "../services/deleteHosting";
+import LoadDestination from "../services/destinationServices/LoadDestination";
+import getHosting from "../services/hostingServices/getHosting";
+import setHosting from "../services/hostingServices/setHosting";
+import updateHosting from "../services/hostingServices/updateHosting";
+import deleteHosting from "../services/hostingServices/deleteHosting";
+import plus from '../imgs/icons/plus.png' 
+import '../styles/components/btn.css';
+import Accommodations from "./Accommodations";
 function Hosting({ onClose, id }) {
   const [fields, setFields] = useState({
     name: "",
@@ -14,7 +17,7 @@ function Hosting({ onClose, id }) {
     contact_email: "",
     destination_id: "", 
   });
-
+const [currentComponent, setCurrentComponent] = useState("form");
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFields((prevFields) => ({
@@ -68,8 +71,22 @@ function Hosting({ onClose, id }) {
     fetch();
   }, [id]);
 
+
+  const handleAccommodations = () => {
+    setCurrentComponent("accommodations"); // Troca para o componente de acomodações
+  };
+
   return (
-    <div className="menu_user">
+    <div className="menu_user" >
+     {currentComponent === "form" && (
+        <>
+         {id && (
+            <div className="form-btns">
+              <div className="btn-extra" onClick={handleAccommodations}>
+                <img src={plus} alt="acomodações" /> Acomodações
+              </div>
+            </div>
+          )}
       <h1>Hospedagem</h1>
       <form onSubmit={handleSubmit}>
         <label>
@@ -152,11 +169,16 @@ function Hosting({ onClose, id }) {
         <br />
         <button type="submit" className="btn-submit">Enviar</button>
         <button type="button" className="btn-close" onClick={onClose}>Sair</button>
+        {id &&
         <button type="button" className="btn-close" onClick={handleDelete}>Delete</button>
+        }
       </form>
+        </>
+      )}
+
+      {currentComponent === "accommodations" && <Accommodations id={id} />}
     </div>
   );
 }
 
 export default Hosting;
-

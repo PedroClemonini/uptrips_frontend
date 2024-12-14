@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PackageCard from "./components/packageCard";
-import LoadHosting from "./services/LoadHosting";
+import LoadHosting from "./services/hostingServices/LoadHosting";
 import Header from "./components/header";
 import "./styles/pages/index.css";
 import UniversalCard from "./components/universalCard.js";
@@ -33,21 +33,22 @@ export default function ManageHosting() {
       <Header />
       <section className="manage_section">
         {showComponent ? (
-          <Hosting id={selectedHostingId} onClose={() => setShowComponent(false)} />
+  
+        <Hosting id={selectedHostingId} onClose={() => setShowComponent(false)} />
         ) : (
-          <>
-            <PackageCard onClick={() => createHosting(null)} />
-            {hostings.map((hosting) => (
-              <div key={hosting.id} onClick={() => createHosting(hosting.id)}>
-                <UniversalCard
-                  data={hosting}
-                  keys={["id", "name"]}
-                  icon="bus"
-                  subkey={{ id: "id", name: "Titulo" }}
-                />
-              </div>
-            ))}
-          </>
+        <>
+          <PackageCard onClick={() => createHosting(null)} />
+          {hostings.map((hosting) => (
+            <div key={hosting.id} onClick={() => createHosting(hosting.id)}>
+              <UniversalCard
+                data={hosting}
+                keys={["id", "name"]}
+                icon="bus"
+                subkey={{ id: "id", name: "Titulo" }}
+              />
+            </div>
+          ))}
+        </>
         )}
       </section>
     </div>

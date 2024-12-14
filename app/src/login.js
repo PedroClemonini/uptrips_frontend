@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 import "./styles/pages/index.css";
 import "./styles/pages/login.css";
-import LoginService from "./services/UserService.js";
+import LoginService from "./services/userServices/UserService";
 function Login() {
   const navigate = useNavigate();
 

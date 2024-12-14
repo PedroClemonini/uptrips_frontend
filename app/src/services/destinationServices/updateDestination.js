@@ -1,13 +1,13 @@
-import api from "../Api";
+import api from "../../Api";
 import Cookies from "js-cookie";
-export default async function deleteHosting(id) {
+export default async function updateHosting(form) {
   try {
-    await api.delete(`/api/hosting/${id}`, {
+    await api.put(`/api/hosting/${form.id}`, form, {
       headers: {
         "Content-Type": "application/json",
          "X-XSRF-TOKEN": Cookies.get("XSRF-TOKEN"),
       },
-      withCredentials: true,
+      withCredentials: true, 
     });
   } catch (error) {
     console.log(error);
