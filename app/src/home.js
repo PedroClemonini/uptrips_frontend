@@ -1,83 +1,67 @@
 import React, { useEffect, useState } from "react";
-import Header from './components/header';
+import Header from "./components/header";
 import Footer from "./components/footer";
 import Feedback from "./components/feedback";
-import PackageCard from './components/packageCard';
-import './styles/pages/home.css';
+import PackageCard from "./components/packageCard";
+import "./styles/pages/home.css";
 
-import LoadPackage from './services/packageServices/LoadPackage'
+import LoadPackage from "./services/packageServices/LoadPackage";
 import getPackage from "./services/packageServices/getPackage";
-import { useNavigate } from 'react-router-dom';
-
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
-//   const [packages, setPackages] = useState([]);
-//   const [loading, setLoading] = useState(true);
-//   const [error, setError] = useState(null);
-//   const navigate = useNavigate();
+  const [packages, setPackages] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   const fetchPackages = async () => {
-  //     try {
-  //       // Simulando a carga de pacotes
-  //       const loadedPackages = await LoadPackage();
+  useEffect(() => {
+    const fetchPackages = async () => {
+      try {
+        const loadedPackages = await LoadPackage();
 
-  //       if (Array.isArray(loadedPackages)) {
-  //         setPackages(loadedPackages);
-  //       } else {
-  //         console.error('Os dados carregados não são um array:', loadedPackages);
-  //         setError('Erro ao carregar os pacotes. Por favor, tente novamente mais tarde.');
-  //       }
-  //     } catch (err) {
-  //       console.error('Erro ao buscar pacotes:', err);
-  //       setError('Erro de conexão. Por favor, verifique sua internet.');
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
+        if (Array.isArray(loadedPackages)) {
+          setPackages(loadedPackages);
+        } else {
+          console.error("Os dados carregados não são um array:", loadedPackages);
+          setError(
+            "Erro ao carregar os pacotes. Por favor, tente novamente mais tarde."
+          );
+        }
+      } catch (err) {
+        console.error("Erro ao buscar pacotes:", err);
+        setError("Erro de conexão. Por favor, verifique sua internet.");
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  //   fetchPackages();
-  // }, []);
+    fetchPackages();
+  }, []);
 
-//   useEffect(() => {
-//     const fetchPackages = async () => {
-//       try {
-//         const loadedPackages = await LoadPackage();
+  const packageSelect = async (id) => {
+    const data = await getPackage(id);
+    navigate("/package-view", { state: { packageData: data } });
+  };
 
+  if (loading) {
+    return (
+      <div className="loading-container">
+        <div className="loading-spinner"></div>
+        <p>Carregando pacotes...</p>
+      </div>
+    );
+  }
 
-  // if (loading) {
-  //   return <div>Carregando pacotes...</div>;
-  // }
-
-  // if (error) {
-  //   return <div>{error}</div>;
-  // }
-
-
-//   const packageSelect = async (id) => {
-//     const data = await getPackage(id);
-//     navigate('/package-view', { state: { packageData: data } });
-//   }
-
-//   if (loading) {
-//     return (
-//       <div className="loading-container">
-//         <div className="loading-spinner"></div>
-//         <p>Carregando pacotes...</p>
-//       </div>
-//     );
-//   }
-
-//   if (error) {
-//     return (
-//       <div className="error-container">
-//         <h2>Ops! Algo deu errado...</h2>
-//         <p>{error}</p>
-//         <button onClick={() => window.location.reload()}>Tentar Novamente</button>
-//       </div>
-//     );
-//   }
-
+  if (error) {
+    return (
+      <div className="error-container">
+        <h2>Ops! Algo deu errado...</h2>
+        <p>{error}</p>
+        <button onClick={() => window.location.reload()}>Tentar Novamente</button>
+      </div>
+    );
+  }
 
   return (
     <div className="HomePage">
@@ -87,9 +71,13 @@ export default function Home() {
           <h2>VIAJAR É DAR UM UP EM SUA VIDA!</h2>
           <h1>DESCUBRA DESTINOS INCRÍVEIS COM OFERTAS EXCLUSIVAS!</h1>
           <p>
-            PLANEJE SUA PRÓXIMA VIAGEM COM DESCONTOS IMPERDÍVEIS E VIVA EXPERIÊNCIAS INESQUECÍVEIS! 🌍✈️
+            PLANEJE SUA PRÓXIMA VIAGEM COM DESCONTOS IMPERDÍVEIS E VIVA
+            EXPERIÊNCIAS INESQUECÍVEIS! 🌍✈️
           </p>
-          <button className="btn-reserve" onClick={() => alert('Reservar Agora!')}>
+          <button
+            className="btn-reserve"
+            onClick={() => alert("Reservar Agora!")}
+          >
             Reservar Agora!
           </button>
         </section>
@@ -107,9 +95,8 @@ export default function Home() {
           </section>
         </section>
       </main>
-      <section id="steps">
-            
-      </section>
+
+      <section id="steps"></section>
 
       <section id="feedbacks">
         <h2>FEEDBACK</h2>
@@ -133,7 +120,7 @@ export default function Home() {
         <a href="/">QUERO VIAJAR TAMBÉM!</a>
       </section>
 
-      <Footer/>
+      <Footer />
     </div>
   );
 }
