@@ -13,6 +13,8 @@ import ManageHosting from "./manageHosting.js";
 import ManageTour from "./manageTours.js";
 import ManageReservation from "./manageReservations.js";
 import Hosting from "./forms/Hosting.js";
+import PackageView from "./packageView.js";
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -29,6 +31,7 @@ export default function App() {
         <Route path="/reservations" element={<ManageReservation />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/package-view" element={<PackageView />} />
       </Routes>
     </BrowserRouter>
   );
