@@ -1,9 +1,3 @@
-import { useState } from "react";
-import show from "../imgs/icons/show.png";
-import hide from "../imgs/icons/show.png";
-
-// import "../styles/components/user_row.css";
-
 function UserRow({ id, name, email, phone, cpf, rg, birth, onEdit, onDelete }) {
     return (
       <div className="userRow">
