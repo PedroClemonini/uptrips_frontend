@@ -99,14 +99,14 @@ export default function Home() {
           <section className="package-list">
             
             {packages.slice(0, 3).map((packageItem) => (
-              <div onClick={() => packageSelect(packageItem.id)} class="toptrip">
+              <div onClick={() => packageSelect(packageItem.id)} className="toptrip">
                 <div class="img">
                   <img
                     src={require(`./imgs${packageItem.image1_path}`)}
                     alt="Imagem do pacote"
                   />
                 </div>
-                <div class="info">
+                <div className="info">
                   <h1>{packageItem.city}</h1>
                   <span>{parseFloat(packageItem.adult_value).toFixed(2)}</span>
                 </div>

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Header from "./components/header";
 import Footer from "./components/footer";
-import PackageCard from "./components/packageCard";
 import "./styles/pages/home.css";
 import getDestination from "./services/destinationServices/getDestination";
 import LoadPackage from "./services/packageServices/LoadPackage";
@@ -72,15 +71,22 @@ export default function PackagesList() {
     <div className="HomePage">
       <Header />
       <main>
-
+      
         <section className="recommended-trips">
           <section className="package-list">
             {packages.map((packageItem) => (
-              <PackageCard
-                key={packageItem.id}
-                data={packageItem}
-                onClick={() => packageSelect(packageItem.id)}
-              />
+              <div onClick={() => packageSelect(packageItem.id)} className="toptrip">
+                <div class="img">
+                  <img
+                    src={require(`./imgs${packageItem.image1_path}`)}
+                    alt="Imagem do pacote"
+                  />
+                </div>
+                <div className="info">
+                  <h1>{packageItem.city}</h1>
+                  <span>{parseFloat(packageItem.adult_value).toFixed(2)}</span>
+                </div>
+              </div>
             ))}
           </section>
         </section>
