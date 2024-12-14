@@ -109,8 +109,8 @@ export default function Home() {
                     />
                   </div>
                   <div class="info">
-                    <h1>teste</h1>
-                    <span>teste</span>
+                    {/* <h1>{(packageData.city)}</h1> */}
+                    {/* <span>{(packageData.adult_value).toFixed(2)}</span> */}
                   </div>
                   <span>2 dias</span>
               </div>
