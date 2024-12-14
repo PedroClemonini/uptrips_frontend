@@ -25,8 +25,8 @@ function Register() {
 
   const validateName = (name) => /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/.test(name);
   const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  const validateCPF = (cpf) => /^\d{11}$/.test(cpf);
   const validatePhone = (phone) => /^\d{10,11}$/.test(phone);
+  const validateCPF = (cpf) => /^\d{11}$/.test(cpf);
   const validateRG = (rg) => /^\d{7,9}$/.test(rg);
   const validatePassword = (password) => password.length >= 8;
 

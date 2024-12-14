@@ -1,4 +1,4 @@
-function Input({label, type, name, maxlength, maxvalue, value, placeholder, req, onChange}){
+function Input({label, type, name, maxlength, maxvalue, value, placeholder, req, onChange, className}){
     return(
         <label>
             {label}
@@ -11,6 +11,7 @@ function Input({label, type, name, maxlength, maxvalue, value, placeholder, req,
             placeholder={placeholder} 
             required = {req ? true : false}
             onChange={onChange}
+            className={className}
             />
         </label>
     );
