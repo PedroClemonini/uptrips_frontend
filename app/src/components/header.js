@@ -1,8 +1,7 @@
 import "../styles/components/header.css";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
-
-import { Link } from "react-router-dom";
+import { HashLink as Link } from 'react-router-hash-link';
 
 import user from '../imgs/icons/user.png'
 function Header() {
@@ -23,13 +22,10 @@ function Header() {
         <Link className="link" to="/" >
           Home
         </Link>
-        <Link className="link" to="/trips" >
-          Destinos
-        </Link>
-        <Link className="link" to="/books" >
+        <Link className="link" to="/#steps" >
           Pacotes
         </Link>
-        <Link className="link" to="/feedacks" >
+        <Link className="link" to="/#feedbacks" >
           Feedbacks
         </Link>
         {isLogged ? (
