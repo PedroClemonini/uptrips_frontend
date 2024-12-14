@@ -14,7 +14,7 @@ import ManageTour from "./manageTours.js";
 import ManageReservation from "./manageReservations.js";
 import Hosting from "./forms/Hosting.js";
 import PackageView from "./packageView.js";
-
+import PackagesList from "./packagesList.js";
 export default function App() {
   return (
     <BrowserRouter>
@@ -28,6 +28,7 @@ export default function App() {
         <Route path="/editHostings" element={<Hosting />} />
         <Route path="/tours" element={<ManageTour />} />
         <Route path="/packages" element={<ManagePackages />} />
+        <Route path="/packagesList" element={<PackagesList />} />
         <Route path="/reservations" element={<ManageReservation />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />

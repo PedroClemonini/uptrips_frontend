@@ -23,6 +23,9 @@ function Header() {
           Home
         </Link>
         <Link className="link" to="/#steps" >
+          Como Reservar
+        </Link>
+        <Link className="link" to="/packagesList" >
           Pacotes
         </Link>
         <Link className="link" to="/#feedbacks" >
