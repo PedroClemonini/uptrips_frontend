@@ -1,28 +1,29 @@
 import React from 'react';
 import api from '../Api';
-import Cookies from 'js-cookie'; 
+import Cookies from 'js-cookie';
+import '../styles/logout.css'; 
 
-function Logout(){
-   const handleSubmit = async (e) => {
+export default function Logout() {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await api.post("/logout",null,{
+      const response = await api.post("/logout", null, {
         headers: {
           "X-XSRF-TOKEN": Cookies.get("XSRF-TOKEN"),
         },
         withCredentials: true,
       });
-      console.log(response.data);
+      console.log("Logout realizado com sucesso:", response.data);
     } catch (error) {
-      console.error("Erro ao consumir a API", error);
+      console.error("Erro ao consumir à API", error);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <button type="submit">Logout</button>
-    </form>
+    <div className="logout-container">
+      <form onSubmit={handleSubmit}>
+        <button type="submit" className="logout-button">Logout</button>
+      </form>
+    </div>
   );
 }
-
-export default Logout;
