@@ -114,7 +114,7 @@ export default function Home() {
             <Step
               icon="smile"
               title="Embarcar e aproveitar!"
-              text="Após a confirmação, você receberá todos os detalhesnecessários. Agora é só arrumar as malas e curtir!"
+              text="Após a confirmação, você receberá todos os detalhes necessários. Agora é só arrumar as malas e curtir!"
             />
 
             <a href="/">TÔ DENTRO!</a>
