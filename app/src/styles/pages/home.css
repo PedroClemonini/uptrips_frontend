@@ -93,3 +93,43 @@ body {
   flex-wrap: wrap;
   width: 100%;
 }
+
+
+section#feedbacks {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+section#feedbacks h2 {
+  color: var(--c1);
+  font-size: 20px;
+  font-weight: 800;
+}
+
+
+section#feedbacks h1 {
+  font-size: 30px;
+  font-weight: 900;
+}
+
+
+section#feedbacks a {
+  border: solid 3px var(--c1);
+  border-radius: 5px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.342);
+  color: var(--c1);
+  font-size: 20px;
+  font-weight: 700;
+  margin: 50px;
+  padding: 15px;
+  transition: all 150ms ease-in-out;
+}
+
+section#feedbacks a:hover {
+  cursor: pointer;
+  box-shadow: 0px 6px 9px rgba(0, 0, 0, 0.342);
+  background-color: var(--c1);
+  color: white;
+}
